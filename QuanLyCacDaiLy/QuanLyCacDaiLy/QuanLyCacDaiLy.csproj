@@ -90,6 +90,7 @@
     <Compile Include="Model\No.cs" />
     <Compile Include="Model\PhieuThu.cs" />
     <Compile Include="Model\PhieuXuat.cs" />
+    <Compile Include="Model\QuanLyDaiLyDBContext.cs" />
     <Compile Include="Model\UuDai.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
