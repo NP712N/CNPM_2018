@@ -10,14 +10,16 @@ namespace QuanLyCacDaiLy.Model
 {
     public class ChiTietPhieuXuat
     {
-        [Key,ForeignKey("MaPhieu"),Column(Order =0)]      
-        public string MaPhieu { get; set; }
+        [Key]
+        [MaxLength(10)]
+        public string MaChiTietPhieuXuat { get; set; }
 
-        [Key, ForeignKey("MaPhieu"), Column(Order = 1)]     
-        public string MaHangHoa { get; set; }
-
+        public string MaPhieuXuat { get; set; }
+        [ForeignKey("MaPhieuXuat")]
         public virtual PhieuXuat PhieuXuat { get; set; }
-        public virtual HangHoa HangHoa { get; set; }
+
+        
+        public ICollection<HangHoa> HangHoas { get; set; }
 
         public DateTime NgayXuat { get; set; }
     }

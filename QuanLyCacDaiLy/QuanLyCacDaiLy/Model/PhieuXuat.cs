@@ -14,13 +14,13 @@ namespace QuanLyCacDaiLy.Model
         [Required]
         [MaxLength(10)]
         public string MaPhieuXuat { get; set; }
-        
+
+        public string MaHoaDon { get; set; }
         [ForeignKey("MaHoaDon")]
-        public string MaHoaDonRefID { get; set; }
         public virtual HoaDon HoaDon { get; set; }
 
+        public string MaChiTietPhieuXuat { get; set; }
         [ForeignKey("MaChiTietPhieuXuat")]
-        public string MaChiTietPhieuXuatRefID { get; set; }
         public virtual ChiTietPhieuXuat ChiTietPhieuXuat { get; set; }
 
         [MaxLength(10)]

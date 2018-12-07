@@ -15,8 +15,8 @@ namespace QuanLyCacDaiLy.Model
         [MaxLength(10)]
         public string MaDaiLy { get; set; }
 
+        public string MaDinhMuc { get; set; }
         [ForeignKey("MaDinhMuc")]
-        public string MaDinhMucRefID { get; set; }
         public virtual DinhMuc DinhMuc { get; set; }
 
         [MaxLength(10)]
@@ -27,8 +27,8 @@ namespace QuanLyCacDaiLy.Model
         [MaxLength(20)]
         public string HoTenChuDaiLy { get; set; }
         public DateTime NgaySinh { get; set; }
-        [MaxLength(1)]
-        public byte CapDaiLy { get; set; }
+
+        public int CapDaiLy { get; set; }
         [MaxLength(20)]
         public string TenDaiLy { get; set; }
         public string NoiDung { get; set; }
@@ -36,8 +36,7 @@ namespace QuanLyCacDaiLy.Model
 
         public ICollection<BaoCaoCongNo> BaoCaoCongNos { get; set; }
         public ICollection<ChiTietUuDai> ChiTietUuDais { get; set; }
-        public ICollection<No> Nos { get; set; }
-        
+        public ICollection<No> Nos { get; set; }        
         public ICollection<DonHang> DonHangs { get; set; }
     }
 }

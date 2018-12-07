@@ -10,14 +10,17 @@ namespace QuanLyCacDaiLy.Model
 {
     public class ChiTietHoaDon
     {
-        [Key,ForeignKey("MaHoaDon"),Column(Order =0)]
+        [Key]
+        [MaxLength(10)]
+        public string MaChiTietHoaDon { get; set; }
+
         public string MaHoaDon { get; set; }
-
-        [Key, ForeignKey("MaDoanhThu"), Column(Order = 0)]
-        public string MaDoanhThu { get; set; }
-
+        [ForeignKey("MaHoaDon")]
         public virtual HoaDon HoaDon { get; set; }
-        public virtual BaoCaoDoanhThu BaoCaoDoanhThu  { get; set; }
+
+        public string MaDoanhThu { get; set; }
+        [ForeignKey("MaDoanhThu")]
+        public virtual BaoCaoDoanhThu BaoCaoDoanhThu { get; set; }
 
         public double ThanhTien { get; set; }
     }

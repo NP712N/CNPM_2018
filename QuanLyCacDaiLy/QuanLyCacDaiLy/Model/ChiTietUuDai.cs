@@ -10,15 +10,18 @@ namespace QuanLyCacDaiLy.Model
 {
     public class ChiTietUuDai
     {
-        [Key,ForeignKey("MaDaiLy"),Column(Order =0)]
+        [Key]
+        [MaxLength(10)]
+        public string MaChiTietUuDai { get; set; }
+
         public string MaDaiLy { get; set; }
-
-        [Key, ForeignKey("MaUuDai"), Column(Order = 1)]
-        public string MaUuDai { get; set; }
-
-        public virtual UuDai UuDai { get; set; }
+        [ForeignKey("MaDaiLy")]
         public virtual DaiLy DaiLy { get; set; }
 
+
+        public string MaUuDai { get; set; }
+        [ForeignKey("MaUuDai")]
+        public virtual UuDai UuDai { get; set; }
 
         public string NoiDung { get; set; }
     }

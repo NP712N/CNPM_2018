@@ -18,16 +18,16 @@ namespace QuanLyCacDaiLy.Model
         public DateTime NgayLap { get; set; }
         public DateTime DenNgay { get; set; }
 
+        public string MaDaiLy { get; set; }
         [ForeignKey("MaDaiLy")]
-        public string MaDaiLyRefID { get; set; }
         public virtual DaiLy DaiLy { get; set; }
 
+        public string MaDinhMuc { get; set; }
         [ForeignKey("MaDinhMuc")]
-        public string MaDinhMucRefID { get; set; }
         public virtual DinhMuc DinhMuc { get; set; }
 
-        [ForeignKey("MaMatHang")]
-        public string MaMatHangRefID { get; set; }
+        public string MaHangHoa { get; set; }
+        [ForeignKey("MaHangHoa")]
         public virtual HangHoa HangHoa { get; set; }
 
         public int SoLuong { get; set; }

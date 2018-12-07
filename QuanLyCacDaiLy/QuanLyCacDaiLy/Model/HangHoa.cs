@@ -15,8 +15,8 @@ namespace QuanLyCacDaiLy.Model
         [MaxLength(10)]
         public string MaHangHoa { get; set; }
 
+        public string MaChiTietPhieuXuat { get; set; }
         [ForeignKey("MaChiTietPhieuXuat")]
-        public string MaChiTietPhieuXuatRefID { get; set; }
         public virtual ChiTietPhieuXuat ChiTietPhieuXuat { get; set; }
 
         [MaxLength(20)]

@@ -15,12 +15,12 @@ namespace QuanLyCacDaiLy.Model
         [MaxLength(10)]
         public string MaCongNo { get; set; }
 
+        public string MaDaiLy { get; set; }
         [ForeignKey("MaDaiLy")]
-        public string MaDaiLyRefID { get; set; }
         public virtual DaiLy DaiLy { get; set; }
 
+        public string MaDinhMuc { get; set; }
         [ForeignKey("MaDinhMuc")]
-        public string MaDinhMucRefID { get; set; }
         public virtual DinhMuc DinhMuc { get; set; }
 
         public DateTime NgayLap { get; set; }

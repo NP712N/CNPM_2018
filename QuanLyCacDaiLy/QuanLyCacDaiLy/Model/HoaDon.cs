@@ -14,31 +14,32 @@ namespace QuanLyCacDaiLy
         [Key]
         [Required]
         [MaxLength(10)]
-        public string MaHD { get; set; }
+        public string MaHoaDon { get; set; }
         public DateTime NgayLap { get; set; }
 
+        public string MaUuDai { get; set; }
         [ForeignKey("MaUuDai")]
-        public string MaUuDaiRefID { get; set; }
         public virtual UuDai UuDai { get; set; }
 
+        
+        public string MaHangHoa{ get; set; }
         [ForeignKey("MaHangHoa")]
-        public string MaHangHoaRefID { get; set; }
         public HangHoa HangHoa { get; set; }
 
+        public string MaChiTietHoaDon { get; set; }
         [ForeignKey("MaChiTietHoaDon")]
-        public string MaChiTietHoaDonRefID { get; set; }
         public virtual ChiTietHoaDon ChiTietHoaDon { get; set; }
 
+        public string MaPhieuXuat { get; set; }
         [ForeignKey("MaPhieuXuat")]
-        public string MaPhieuXuatRefID { get; set; }
         public virtual PhieuXuat PhieuXuat { get; set; }
 
+        public string MaPhieuThu { get; set; }
         [ForeignKey("MaPhieuThu")]
-        public string MaPhieuThuRefID { get; set; }
         public virtual PhieuThu PhieuThu { get; set; }
 
+        public string MaDonHang { get; set; }
         [ForeignKey("MaDonHang")]
-        public string MaDonHangRefID { get; set; }
         public virtual DonHang DonHang { get; set; }
 
         [MaxLength(10)]
