@@ -21,11 +21,11 @@ namespace QuanLyCacDaiLy
     /// </summary>
     public partial class MainWindow : Window
     {
+        QuanLyDaiLyDBContext db;
         public MainWindow()
         {
             InitializeComponent();
-
-            
+            db = new QuanLyDaiLyDBContext();
         }
     }
 }
