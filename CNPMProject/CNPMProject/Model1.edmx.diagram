@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dbf6b41329b043edb449b740b4f2d646" Name="Diagram1">
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.BAOCAOCONGNO" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.BAOCAODOANHTHU" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.CHITIETHANGHOAXUAT" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.DAILY" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.DINHMUC" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.DONHANG" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.HANGHOA" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.HOADON" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.NODAILY" Width="1.5" PointX="12" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.PHIEUTHU" Width="1.5" PointX="9.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.PHIEUXUAT" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYCACDAILYModel.UUDAI" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaDaiLyBCCN" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaDaiLyBCDT" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK__CHITIETHA__MaHan__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK__CHITIETHA__MaPhi__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaDaiLyDH" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaDaiLyNo" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaDinhMuc" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaDonHangHD" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaHoaDonPT" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaPhieuXuatHD" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.FK_MaPhieuThuNo" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYCACDAILYModel.CHITIETUUDAI" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

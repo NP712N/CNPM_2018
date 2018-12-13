@@ -26,6 +26,10 @@ namespace QuanLyCacDaiLy
         {
             InitializeComponent();
             db = new QuanLyDaiLyDBContext();
+            DaiLy daiLy = new DaiLy() { MaDaiLy = "123123"};
+            db.DaiLys.Add(daiLy);
+
+            db.SaveChanges();
         }
     }
 }

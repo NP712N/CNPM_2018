@@ -32,6 +32,7 @@ namespace QuanLyCacDaiLy.Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<BaoCaoCongNo>()
                 .HasRequired<DaiLy>(s => s.DaiLy)
                 .WithMany(g => g.BaoCaoCongNos)

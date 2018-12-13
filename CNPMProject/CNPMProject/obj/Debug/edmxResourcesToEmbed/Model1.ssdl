@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYCACDAILYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BAOCAOCONGNO">
+    <Key>
+      <PropertyRef Name="MaBaoCaoCongNo" />
+    </Key>
+    <Property Name="MaBaoCaoCongNo" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaDaiLy" Type="char" MaxLength="9" />
+    <Property Name="NgayLap" Type="date" />
+    <Property Name="DenNgay" Type="date" />
+    <Property Name="TongNo" Type="float" />
+  </EntityType>
+  <EntityType Name="BAOCAODOANHTHU">
+    <Key>
+      <PropertyRef Name="MaBaoCaoDoanhThu" />
+    </Key>
+    <Property Name="MaBaoCaoDoanhThu" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaDaiLy" Type="char" MaxLength="9" />
+    <Property Name="NgayLap" Type="date" />
+    <Property Name="DenNgay" Type="date" />
+    <Property Name="TongDoanhThu" Type="float" />
+  </EntityType>
+  <EntityType Name="CHITIETHANGHOAXUAT">
+    <Key>
+      <PropertyRef Name="MaPhieuXuat" />
+      <PropertyRef Name="MaHangHoa" />
+    </Key>
+    <Property Name="MaPhieuXuat" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaHangHoa" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+  </EntityType>
+  <EntityType Name="CHITIETUUDAI">
+    <Key>
+      <PropertyRef Name="MaDaiLy" />
+      <PropertyRef Name="MaUuDai" />
+    </Key>
+    <Property Name="MaDaiLy" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaUuDai" Type="char" MaxLength="9" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DAILY">
+    <Key>
+      <PropertyRef Name="MaDaiLy" />
+    </Key>
+    <Property Name="MaDaiLy" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaDinhMuc" Type="char" MaxLength="9" />
+    <Property Name="MaHopDong" Type="char" MaxLength="9" />
+    <Property Name="NgayLap" Type="date" />
+    <Property Name="CMND" Type="char" MaxLength="9" />
+    <Property Name="HoTenChuDaiLy" Type="nvarchar" MaxLength="20" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="CapDaiLy" Type="char" MaxLength="3" />
+    <Property Name="TenDaiLy" Type="nvarchar" MaxLength="20" />
+    <Property Name="NoiDung" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DINHMUC">
+    <Key>
+      <PropertyRef Name="MaDinhMuc" />
+    </Key>
+    <Property Name="MaDinhMuc" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="CapDaiLy" Type="char" MaxLength="3" />
+    <Property Name="NoiDungDinhMuc" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DONHANG">
+    <Key>
+      <PropertyRef Name="MaDonHang" />
+    </Key>
+    <Property Name="MaDonHang" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaDaiLy" Type="char" MaxLength="9" />
+    <Property Name="NgayDangKy" Type="date" />
+  </EntityType>
+  <EntityType Name="HANGHOA">
+    <Key>
+      <PropertyRef Name="MaHangHoa" />
+    </Key>
+    <Property Name="MaHangHoa" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="TenMatHang" Type="nvarchar" MaxLength="20" />
+    <Property Name="DonGia" Type="int" />
+    <Property Name="SoLuongCon" Type="int" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaDonHang" Type="char" MaxLength="9" />
+    <Property Name="MaPhieuXuat" Type="char" MaxLength="9" />
+    <Property Name="NgayLap" Type="date" />
+    <Property Name="ThanhTien" Type="float" />
+  </EntityType>
+  <EntityType Name="NODAILY">
+    <Key>
+      <PropertyRef Name="MaNoDaiLy" />
+    </Key>
+    <Property Name="MaNoDaiLy" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaDaiLy" Type="char" MaxLength="9" />
+    <Property Name="MaPhieuThu" Type="char" MaxLength="9" />
+    <Property Name="TienNo" Type="float" />
+  </EntityType>
+  <EntityType Name="PHIEUTHU">
+    <Key>
+      <PropertyRef Name="MaPhieuThu" />
+    </Key>
+    <Property Name="MaPhieuThu" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MaHoaDon" Type="char" MaxLength="9" />
+    <Property Name="NgayLapPhieu" Type="date" />
+    <Property Name="SoTienDaThu" Type="float" />
+  </EntityType>
+  <EntityType Name="PHIEUXUAT">
+    <Key>
+      <PropertyRef Name="MaPhieuXuat" />
+    </Key>
+    <Property Name="MaPhieuXuat" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="NgayXuat" Type="date" />
+    <Property Name="ThanhTien" Type="float" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UUDAI">
+    <Key>
+      <PropertyRef Name="MaUuDai" />
+    </Key>
+    <Property Name="MaUuDai" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="TenUuDai" Type="nvarchar" MaxLength="20" />
+    <Property Name="NgayBatDau" Type="date" />
+    <Property Name="NgayKetThuc" Type="date" />
+    <Property Name="CapDaiLy" Type="char" MaxLength="3" />
+    <Property Name="PhanTram" Type="float" />
+  </EntityType>
+  <Association Name="FK__CHITIETHA__MaHan__4D94879B">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="1" />
+    <End Role="CHITIETHANGHOAXUAT" Type="Self.CHITIETHANGHOAXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MaHangHoa" />
+      </Principal>
+      <Dependent Role="CHITIETHANGHOAXUAT">
+        <PropertyRef Name="MaHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETHA__MaPhi__4CA06362">
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="1" />
+    <End Role="CHITIETHANGHOAXUAT" Type="Self.CHITIETHANGHOAXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUXUAT">
+        <PropertyRef Name="MaPhieuXuat" />
+      </Principal>
+      <Dependent Role="CHITIETHANGHOAXUAT">
+        <PropertyRef Name="MaPhieuXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETUU__MaDai__403A8C7D">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="1" />
+    <End Role="CHITIETUUDAI" Type="Self.CHITIETUUDAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="CHITIETUUDAI">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETUU__MaUuD__412EB0B6">
+    <End Role="UUDAI" Type="Self.UUDAI" Multiplicity="1" />
+    <End Role="CHITIETUUDAI" Type="Self.CHITIETUUDAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UUDAI">
+        <PropertyRef Name="MaUuDai" />
+      </Principal>
+      <Dependent Role="CHITIETUUDAI">
+        <PropertyRef Name="MaUuDai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaDaiLyBCCN">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="0..1" />
+    <End Role="BAOCAOCONGNO" Type="Self.BAOCAOCONGNO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="BAOCAOCONGNO">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaDaiLyBCDT">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="0..1" />
+    <End Role="BAOCAODOANHTHU" Type="Self.BAOCAODOANHTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="BAOCAODOANHTHU">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaDaiLyDH">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaDaiLyNo">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="0..1" />
+    <End Role="NODAILY" Type="Self.NODAILY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="NODAILY">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaDinhMuc">
+    <End Role="DINHMUC" Type="Self.DINHMUC" Multiplicity="0..1" />
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DINHMUC">
+        <PropertyRef Name="MaDinhMuc" />
+      </Principal>
+      <Dependent Role="DAILY">
+        <PropertyRef Name="MaDinhMuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaDonHangHD">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG">
+        <PropertyRef Name="MaDonHang" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="MaDonHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaHoaDonPT">
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="0..1" />
+    <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="PHIEUTHU">
+        <PropertyRef Name="MaHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaPhieuThuNo">
+    <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="0..1" />
+    <End Role="NODAILY" Type="Self.NODAILY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUTHU">
+        <PropertyRef Name="MaPhieuThu" />
+      </Principal>
+      <Dependent Role="NODAILY">
+        <PropertyRef Name="MaPhieuThu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaPhieuXuatHD">
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUXUAT">
+        <PropertyRef Name="MaPhieuXuat" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="MaPhieuXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QUANLYCACDAILYModelStoreContainer">
+    <EntitySet Name="BAOCAOCONGNO" EntityType="Self.BAOCAOCONGNO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BAOCAODOANHTHU" EntityType="Self.BAOCAODOANHTHU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETHANGHOAXUAT" EntityType="Self.CHITIETHANGHOAXUAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETUUDAI" EntityType="Self.CHITIETUUDAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAILY" EntityType="Self.DAILY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DINHMUC" EntityType="Self.DINHMUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONHANG" EntityType="Self.DONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HANGHOA" EntityType="Self.HANGHOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NODAILY" EntityType="Self.NODAILY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUTHU" EntityType="Self.PHIEUTHU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUXUAT" EntityType="Self.PHIEUXUAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UUDAI" EntityType="Self.UUDAI" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CHITIETHA__MaHan__4D94879B" Association="Self.FK__CHITIETHA__MaHan__4D94879B">
+      <End Role="HANGHOA" EntitySet="HANGHOA" />
+      <End Role="CHITIETHANGHOAXUAT" EntitySet="CHITIETHANGHOAXUAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETHA__MaPhi__4CA06362" Association="Self.FK__CHITIETHA__MaPhi__4CA06362">
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUAT" />
+      <End Role="CHITIETHANGHOAXUAT" EntitySet="CHITIETHANGHOAXUAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETUU__MaDai__403A8C7D" Association="Self.FK__CHITIETUU__MaDai__403A8C7D">
+      <End Role="DAILY" EntitySet="DAILY" />
+      <End Role="CHITIETUUDAI" EntitySet="CHITIETUUDAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETUU__MaUuD__412EB0B6" Association="Self.FK__CHITIETUU__MaUuD__412EB0B6">
+      <End Role="UUDAI" EntitySet="UUDAI" />
+      <End Role="CHITIETUUDAI" EntitySet="CHITIETUUDAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaDaiLyBCCN" Association="Self.FK_MaDaiLyBCCN">
+      <End Role="DAILY" EntitySet="DAILY" />
+      <End Role="BAOCAOCONGNO" EntitySet="BAOCAOCONGNO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaDaiLyBCDT" Association="Self.FK_MaDaiLyBCDT">
+      <End Role="DAILY" EntitySet="DAILY" />
+      <End Role="BAOCAODOANHTHU" EntitySet="BAOCAODOANHTHU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaDaiLyDH" Association="Self.FK_MaDaiLyDH">
+      <End Role="DAILY" EntitySet="DAILY" />
+      <End Role="DONHANG" EntitySet="DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaDaiLyNo" Association="Self.FK_MaDaiLyNo">
+      <End Role="DAILY" EntitySet="DAILY" />
+      <End Role="NODAILY" EntitySet="NODAILY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaDinhMuc" Association="Self.FK_MaDinhMuc">
+      <End Role="DINHMUC" EntitySet="DINHMUC" />
+      <End Role="DAILY" EntitySet="DAILY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaDonHangHD" Association="Self.FK_MaDonHangHD">
+      <End Role="DONHANG" EntitySet="DONHANG" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaHoaDonPT" Association="Self.FK_MaHoaDonPT">
+      <End Role="HOADON" EntitySet="HOADON" />
+      <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaPhieuThuNo" Association="Self.FK_MaPhieuThuNo">
+      <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
+      <End Role="NODAILY" EntitySet="NODAILY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaPhieuXuatHD" Association="Self.FK_MaPhieuXuatHD">
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUAT" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
