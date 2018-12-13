@@ -22,6 +22,7 @@ namespace CNPMProject
         public Daily()
         {
             InitializeComponent();
+            
         }
 
         private void button_closewindow_Click(object sender, RoutedEventArgs e)
@@ -41,6 +42,13 @@ namespace CNPMProject
         {
             ThemDL tdl = new ThemDL();
             tdl.ShowDialog();
+        }
+
+        private void DaiLy_Loaded(object sender, RoutedEventArgs e)
+        {
+            CNPMProject.ViewModel.DAILYViewModel dAILYViewModel = new ViewModel.DAILYViewModel();
+            dAILYViewModel.LoadDaiLy();
+            DaiLyViewControl.DataContext = dAILYViewModel;
         }
     }
 }

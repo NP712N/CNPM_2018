@@ -14,8 +14,10 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         ResizeMode="NoResize"
         WindowStyle="None" 
         mc:Ignorable="d"
-        Title="Quản lý đại lý" Height="600" Width="800" Background="#AFBFAE">
+        
+        Title="Quản lý đại lý" Height="600" Width="800" Background="#AFBFAE" Loaded="DaiLy_Loaded">
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -249,6 +251,7 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                         </Button>
                         <Button
                             Name="button_delete"
+                            Command="{Binding DeleteCommand}"
                             Grid.Column="2" Grid.Row="1"
                             Background="#609194"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
@@ -261,58 +264,60 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                     
                 </Grid>
                 <materialDesign:Card Grid.Row="1" Height="350" Width="770">
-                    <DataGrid
-                        
-  ItemsSource="{Binding Items3}"
+                    <DataGrid                       
+  ItemsSource="{Binding Path=DAILYS}"
   CanUserSortColumns="True"
   CanUserAddRows="False" 
+                        SelectedItem="{Binding SelectedDAILYS}"
+                       
+                        Name="DaiLyViewControl" Loaded="DaiLy_Loaded"
   AutoGenerateColumns="False"
                 Width="auto">
                     <DataGrid.Columns>
                         <DataGridTextColumn
-      Binding="{Binding Code}"
+      Binding="{Binding Path=MaDaiLy,Mode=OneWay}"
       Header="Mã đại lý"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Name}"
+      Binding="{Binding Path=MaHopDong,Mode=OneWay}"
       Header="Mã hợp đồng"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Description}"
+      Binding="{Binding Path=NgayLap,Mode=OneWay}" 
       Header="Ngày lập"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding Path=CMND,Mode=OneWay}"
       Header="CMND"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding Path=HoTenChuDaiLy,Mode=OneWay}"
       Header="Họ tên chủ đại lý"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding Path=NgaySinh,Mode=OneWay}"
       Header="Ngày sinh"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding Path=CapDaiLy,Mode=OneWay}"
       Header="Cấp đại lý"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding Path=TenDaiLy,Mode=OneWay}"
       Header="Tên đại lý"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding Path=HoTenChuDaiLy,Mode=OneWay}"
       Header="Họ tên chủ đại lý"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding Path=NoiDung,Mode=OneWay}"
       Header="Nội dung"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>

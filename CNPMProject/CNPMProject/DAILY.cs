@@ -11,8 +11,9 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     
-    public partial class DAILY
+    public partial class DAILY :INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DAILY()
@@ -23,18 +24,150 @@ namespace CNPMProject
             this.NODAILies = new HashSet<NODAILY>();
             this.UUDAIs = new HashSet<UUDAI>();
         }
-    
-        public string MaDaiLy { get; set; }
-        public string MaDinhMuc { get; set; }
-        public string MaHopDong { get; set; }
-        public Nullable<System.DateTime> NgayLap { get; set; }
-        public string CMND { get; set; }
-        public string HoTenChuDaiLy { get; set; }
-        public Nullable<System.DateTime> NgaySinh { get; set; }
-        public string CapDaiLy { get; set; }
-        public string TenDaiLy { get; set; }
-        public string NoiDung { get; set; }
-    
+
+        private string maDaiLy;
+        public string MaDaiLy { get { return maDaiLy; } set {
+                if (maDaiLy!= value)
+                {
+                    maDaiLy = value;
+                    RaisePropertyChanged("MaDaiLy");
+                }
+            }
+        }
+
+        private string maDinhMuc;
+        public string MaDinhMuc { get { return maDinhMuc; } set {
+                if (maDinhMuc!= value)
+                {
+                    maDinhMuc = value;
+                    RaisePropertyChanged("MaDinhMuc");
+                }
+            }
+        }
+
+        private string maHopDong;
+        public string MaHopDong
+        {
+            get { return maHopDong; }
+            set
+            {
+                if (maHopDong != value)
+                {
+                    maHopDong = value;
+                    RaisePropertyChanged("MaHopDong");
+                }
+            }
+        }
+
+        private Nullable<DateTime> ngayLap;
+        public Nullable<DateTime> NgayLap
+        {
+            get { return ngayLap; }
+            set
+            {
+                if (ngayLap != value)
+                {
+                    ngayLap =value;
+                    RaisePropertyChanged("NgayLap");
+                }
+            }
+        }
+
+        private string cMND;
+        public string CMND
+        {
+            get { return cMND; }
+            set
+            {
+                if (cMND != value)
+                {
+                    cMND = value;
+                    RaisePropertyChanged("CMND");
+                }
+            }
+        }
+
+        private string hoTenChuDaiLy;
+        public string HoTenChuDaiLy
+        {
+            get { return hoTenChuDaiLy; }
+            set
+            {
+                if (hoTenChuDaiLy != value)
+                {
+                    hoTenChuDaiLy = value;
+                    RaisePropertyChanged("HoTenChuDaiLy");
+                }
+            }
+        }
+
+        private Nullable<DateTime> ngaySinh;
+        public Nullable<DateTime> NgaySinh
+        {
+            get { return ngaySinh; }
+            set
+            {
+                if (ngaySinh != value)
+                {
+                    ngaySinh = value;
+                    RaisePropertyChanged("NgayLap");
+                }
+            }
+        }
+
+        private string capDaiLy;
+        public string CapDaiLy
+        {
+            get { return capDaiLy; }
+            set
+            {
+                if (capDaiLy != value)
+                {
+                    capDaiLy = value;
+                    RaisePropertyChanged("CapDaiLy");
+                }
+            }
+        }
+
+        private string tenDaiLy;
+        public string TenDaiLy
+        {
+            get { return tenDaiLy; }
+            set
+            {
+                if (tenDaiLy != value)
+                {
+                    tenDaiLy = value;
+                    RaisePropertyChanged("TenDaiLy");
+                }
+            }
+        }
+
+        private string noiDung;
+        public string NoiDung
+        {
+            get { return noiDung; }
+            set
+            {
+                if (noiDung != value)
+                {
+                    noiDung = value;
+                    RaisePropertyChanged("NoiDung");
+                }
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAOCAOCONGNO> BAOCAOCONGNOes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
