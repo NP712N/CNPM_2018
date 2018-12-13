@@ -8,11 +8,11 @@ using System.Windows;
 
 namespace CNPMProject.ViewModel
 {
-    public class DAILYViewModel
+    public class DailyViewModel
     {
         public MyICommand DeleteCommand { get; set; }
         public List<DAILY> DAILYS { get; set; }
-        public DAILYViewModel()
+        public DailyViewModel()
         {
             LoadDaiLy();
             DeleteCommand = new MyICommand(OnDelete, CanDelete);
@@ -33,11 +33,9 @@ namespace CNPMProject.ViewModel
 
         private void OnDelete()
         {
-            DAILYS.Remove(SelectedDAILYS);
             using (var db = new QUANLYCACDAILYEntities())
-            {;
-                db.Entry(db.DAILies.Where(x => x.MaDaiLy == SelectedDAILYS.MaDaiLy)).State = System.Data.Entity.EntityState.Deleted;
-                db.SaveChanges();
+            {
+                db.Database.SqlQuery<DAILY>("DeleteDaiLyByID", SelectedDAILYS.MaDaiLy);
             }
         }
 

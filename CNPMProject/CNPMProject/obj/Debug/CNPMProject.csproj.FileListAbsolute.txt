@@ -119,3 +119,4 @@ D:\Code\C#\CNPM\CNPM_2018\CNPMProject\CNPMProject\bin\Debug\EntityFramework.SqlS
 D:\Code\C#\CNPM\CNPM_2018\CNPMProject\CNPMProject\bin\Debug\EntityFramework.xml
 D:\Code\C#\CNPM\CNPM_2018\CNPMProject\CNPMProject\bin\Debug\EntityFramework.SqlServer.xml
 D:\Code\C#\CNPM\CNPM_2018\CNPMProject\CNPMProject\obj\Debug\CNPMProject_Content.g.cs
+D:\Code\C#\CNPM\CNPM_2018\CNPMProject\CNPMProject\obj\Debug\GeneratedInternalTypeHelper.g.cs

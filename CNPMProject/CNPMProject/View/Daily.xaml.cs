@@ -23,6 +23,7 @@ namespace CNPMProject
         {
             InitializeComponent();
             
+            this.DataContext = new ViewModel.DailyViewModel();
         }
 
         private void button_closewindow_Click(object sender, RoutedEventArgs e)
@@ -46,7 +47,8 @@ namespace CNPMProject
 
         private void DaiLy_Loaded(object sender, RoutedEventArgs e)
         {
-            CNPMProject.ViewModel.DAILYViewModel dAILYViewModel = new ViewModel.DAILYViewModel();
+            
+            CNPMProject.ViewModel.DailyViewModel dAILYViewModel = new ViewModel.DailyViewModel();
             dAILYViewModel.LoadDaiLy();
             DaiLyViewControl.DataContext = dAILYViewModel;
         }

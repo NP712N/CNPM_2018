@@ -133,7 +133,7 @@
     <Compile Include="UUDAI.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\DAILYViewModel.cs" />
+    <Compile Include="ViewModel\DailyViewModel.cs" />
     <Compile Include="View\DonHang.xaml.cs">
       <DependentUpon>DonHang.xaml</DependentUpon>
     </Compile>
@@ -179,7 +179,8 @@
     <Compile Include="View\Uudai.xaml.cs">
       <DependentUpon>Uudai.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Daily.xaml">
+    <Compile Include="VML\ViewModelLocator.cs" />
+    <Page Include="View\DaiLy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,8 +204,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\Daily.xaml.cs">
-      <DependentUpon>Daily.xaml</DependentUpon>
+    <Compile Include="View\DaiLy.xaml.cs">
+      <DependentUpon>DaiLy.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Hanghoa.xaml.cs">
       <DependentUpon>Hanghoa.xaml</DependentUpon>
