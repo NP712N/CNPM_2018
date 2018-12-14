@@ -150,46 +150,47 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:ColorZone Grid.Column="0"
                                               VerticalAlignment="Bottom"
-  Height="70"
-                                             Background="#AFBFAE">
+                                              Height="70"
+                                              Background="#AFBFAE">
                         <DockPanel>
 
                             <StackPanel
-      Orientation="Horizontal"
-      materialDesign:RippleAssist.IsCentered="True">
+                                Orientation="Horizontal"
+                                materialDesign:RippleAssist.IsCentered="True">
 
                                 <materialDesign:ColorZone
-        VerticalAlignment="Center"                            
-        Padding="8 4 8 4"
-        CornerRadius="2"
-        Panel.ZIndex="1"
-        Margin="16 0 0 0"
-        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    VerticalAlignment="Center"                            
+                                    Padding="8 4 8 4"
+                                    CornerRadius="2"
+                                    Panel.ZIndex="1"
+                                    Margin="16 0 0 0"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                     >
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition
-              Width="Auto" />
+                                                Width="Auto" />
                                             <ColumnDefinition
-              Width="*" />
+                                                Width="*" />
                                             <ColumnDefinition
-              Width="Auto" />
+                                                Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <Button
-            Style="{DynamicResource MaterialDesignToolButton}">
+                                            Style="{DynamicResource MaterialDesignToolButton}">
                                             <materialDesign:PackIcon
-              Kind="Magnify"
-              Opacity=".56" />
+                                                Kind="Magnify"
+                                                Opacity=".56" />
                                         </Button>
+                                        
                                         <TextBox
-            Grid.Column="1"
-            Margin="8 0 0 0"
+                                            Grid.Column="1"
+                                            Margin="8 0 0 0"
                                             FontSize="16"
-            materialDesign:HintAssist.Hint="Search"
-            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-            BorderThickness="0"
-            MinWidth="200"
-            VerticalAlignment="Center" />
+                                            materialDesign:HintAssist.Hint="Search"
+                                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                            BorderThickness="0"
+                                            MinWidth="200"
+                                            VerticalAlignment="Center" />
                                     </Grid>
                                 </materialDesign:ColorZone>
                             </StackPanel>
@@ -240,19 +241,20 @@
                             Name="button_add"
                             Grid.Column="0" Grid.Row="1"
                             Background="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
                             Height="40"
-    Width="100"
-                            VerticalAlignment="Top" Click="button_add_Click">
+                            Width="100"
+                            Command="{Binding AddCommand}"
+                            VerticalAlignment="Top">
                             Thêm
                         </Button>
                         <Button
                             Name="button_update"
                             Grid.Column="1" Grid.Row="1"
                             Background="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    Height="40"
-    Width="100"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            Height="40"
+                            Width="100"
                             VerticalAlignment="Top" Click="button_update_Click">
                             Sửa
                         </Button>
@@ -261,9 +263,8 @@
                             Command="{Binding DeleteCommand}"
                             Grid.Column="2" Grid.Row="1"
                             Background="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    Height="40"
-    Width="100"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            Height="40" Width="100"
                             VerticalAlignment="Top">
                             Xóa
                         </Button>
@@ -271,62 +272,63 @@
                     
                 </Grid>
                 <materialDesign:Card Grid.Row="1" Height="350" Width="770">
-                    <DataGrid                       
-  ItemsSource="{Binding Path=DAILYS}"
-  CanUserSortColumns="True"
-  CanUserAddRows="False" 
+                    <DataGrid
+                        ItemsSource="{Binding Path=DAILYS}"
+                        CanUserSortColumns="True"
+                        CanUserAddRows="False" 
                         SelectedItem="{Binding SelectedDAILYS}"
                        
                         Name="DaiLyViewControl" Loaded="DaiLy_Loaded"
-  AutoGenerateColumns="False"
-                Width="auto">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn
-      Binding="{Binding Path=MaDaiLy,Mode=OneWay}"
-      Header="Mã đại lý"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                        AutoGenerateColumns="False"
+                        Width="auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Binding="{Binding Path=MaDaiLy,Mode=OneWay}"
+                                Header="Mã đại lý"
+                                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                            
+                            <materialDesign:MaterialDataGridTextColumn
+                                Binding="{Binding Path=MaHopDong,Mode=OneWay}"
+                                Header="Mã hợp đồng"
+                                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=MaHopDong,Mode=OneWay}"
-      Header="Mã hợp đồng"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                            Binding="{Binding Path=NgayLap,Mode=OneWay}" 
+                            Header="Ngày lập"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=NgayLap,Mode=OneWay}" 
-      Header="Ngày lập"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                        <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=CMND,Mode=OneWay}"
-      Header="CMND"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            Binding="{Binding Path=CMND,Mode=OneWay}"
+                            Header="CMND"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=HoTenChuDaiLy,Mode=OneWay}"
-      Header="Họ tên chủ đại lý"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            Binding="{Binding Path=HoTenChuDaiLy,Mode=OneWay}"
+                            Header="Họ tên chủ đại lý"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=NgaySinh,Mode=OneWay}"
-      Header="Ngày sinh"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            Binding="{Binding Path=NgaySinh,Mode=OneWay}"
+                            Header="Ngày sinh"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=CapDaiLy,Mode=OneWay}"
-      Header="Cấp đại lý"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            Binding="{Binding Path=CapDaiLy,Mode=OneWay}"
+                            Header="Cấp đại lý"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=TenDaiLy,Mode=OneWay}"
-      Header="Tên đại lý"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            Binding="{Binding Path=TenDaiLy,Mode=OneWay}"
+                            Header="Tên đại lý"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=HoTenChuDaiLy,Mode=OneWay}"
-      Header="Họ tên chủ đại lý"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            Binding="{Binding Path=HoTenChuDaiLy,Mode=OneWay}"
+                            Header="Họ tên chủ đại lý"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                         <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=NoiDung,Mode=OneWay}"
-      Header="Nội dung"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            Binding="{Binding Path=NoiDung,Mode=OneWay}"
+                            Header="Nội dung"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                         </materialDesign:MaterialDataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>

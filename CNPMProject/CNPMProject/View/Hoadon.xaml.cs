@@ -22,6 +22,7 @@ namespace CNPMProject
         public Hoadon()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.HoaDonViewModel();
         }
         private void button_closewindow_Click(object sender, RoutedEventArgs e)
         {

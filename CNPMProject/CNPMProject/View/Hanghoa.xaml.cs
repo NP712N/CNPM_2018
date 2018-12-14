@@ -22,6 +22,7 @@ namespace CNPMProject
         public Hanghoa()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.DailyViewModel();
         }
 
         private void button_closewindow_Click(object sender, RoutedEventArgs e)
@@ -45,6 +46,13 @@ namespace CNPMProject
         {
             SuaHH update = new SuaHH();
             update.ShowDialog();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CNPMProject.ViewModel.HangHoaViewModel hangHoaViewModel = new ViewModel.HangHoaViewModel();
+            hangHoaViewModel.LoadHangHoa();
+            HangHoaViewControl.DataContext = hangHoaViewModel;
         }
     }
 }

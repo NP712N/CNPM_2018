@@ -12,8 +12,8 @@ namespace CNPMProject
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    
-    public partial class DAILY :INotifyPropertyChanged
+
+    public partial class DAILY:INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DAILY()
@@ -26,24 +26,30 @@ namespace CNPMProject
         }
 
         private string maDaiLy;
-        public string MaDaiLy { get { return maDaiLy; } set {
-                if (maDaiLy!= value)
+        public string MaDaiLy
+        {
+            get { return maDaiLy; }
+            set
+            {
+                if (maDaiLy!=value)
                 {
                     maDaiLy = value;
                     RaisePropertyChanged("MaDaiLy");
                 }
-            }
-        }
+            } }
 
         private string maDinhMuc;
-        public string MaDinhMuc { get { return maDinhMuc; } set {
-                if (maDinhMuc!= value)
+        public string MaDinhMuc
+        {
+            get { return maDinhMuc; }
+            set
+            {
+                if (maDinhMuc!=value)
                 {
                     maDinhMuc = value;
                     RaisePropertyChanged("MaDinhMuc");
                 }
-            }
-        }
+            } }
 
         private string maHopDong;
         public string MaHopDong
@@ -56,22 +62,20 @@ namespace CNPMProject
                     maHopDong = value;
                     RaisePropertyChanged("MaHopDong");
                 }
-            }
-        }
+            } }
 
         private Nullable<DateTime> ngayLap;
-        public Nullable<DateTime> NgayLap
+        public Nullable<System.DateTime> NgayLap
         {
             get { return ngayLap; }
             set
             {
-                if (ngayLap != value)
+                if (ngayLap!=value)
                 {
-                    ngayLap =value;
+                    ngayLap = value;
                     RaisePropertyChanged("NgayLap");
                 }
-            }
-        }
+            } }
 
         private string cMND;
         public string CMND
@@ -84,8 +88,7 @@ namespace CNPMProject
                     cMND = value;
                     RaisePropertyChanged("CMND");
                 }
-            }
-        }
+            } }
 
         private string hoTenChuDaiLy;
         public string HoTenChuDaiLy
@@ -93,13 +96,12 @@ namespace CNPMProject
             get { return hoTenChuDaiLy; }
             set
             {
-                if (hoTenChuDaiLy != value)
+                if (hoTenChuDaiLy!=value)
                 {
                     hoTenChuDaiLy = value;
                     RaisePropertyChanged("HoTenChuDaiLy");
                 }
-            }
-        }
+            } }
 
         private Nullable<DateTime> ngaySinh;
         public Nullable<DateTime> NgaySinh
@@ -110,7 +112,7 @@ namespace CNPMProject
                 if (ngaySinh != value)
                 {
                     ngaySinh = value;
-                    RaisePropertyChanged("NgayLap");
+                    RaisePropertyChanged("NgaySinh");
                 }
             }
         }
@@ -121,13 +123,12 @@ namespace CNPMProject
             get { return capDaiLy; }
             set
             {
-                if (capDaiLy != value)
+                if (capDaiLy!=value)
                 {
                     capDaiLy = value;
                     RaisePropertyChanged("CapDaiLy");
                 }
-            }
-        }
+            } }
 
         private string tenDaiLy;
         public string TenDaiLy
@@ -135,13 +136,12 @@ namespace CNPMProject
             get { return tenDaiLy; }
             set
             {
-                if (tenDaiLy != value)
+                if (tenDaiLy!=value)
                 {
                     tenDaiLy = value;
                     RaisePropertyChanged("TenDaiLy");
                 }
-            }
-        }
+            } }
 
         private string noiDung;
         public string NoiDung
@@ -149,14 +149,12 @@ namespace CNPMProject
             get { return noiDung; }
             set
             {
-                if (noiDung != value)
+                if (noiDung!=value)
                 {
                     noiDung = value;
                     RaisePropertyChanged("NoiDung");
                 }
-            }
-        }
-
+            } }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

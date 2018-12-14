@@ -38,13 +38,7 @@ namespace CNPMProject
             sdl.ShowDialog();
 
         }
-
-        private void button_add_Click(object sender, RoutedEventArgs e)
-        {
-            ThemDL tdl = new ThemDL();
-            tdl.ShowDialog();
-        }
-
+       
         private void DaiLy_Loaded(object sender, RoutedEventArgs e)
         {
             

@@ -11,11 +11,25 @@ namespace CNPMProject.ViewModel
     public class DailyViewModel
     {
         public MyICommand DeleteCommand { get; set; }
+        public MyICommand AddCommand { get; set; }
+        public bool CanAddT { get; set; }
         public List<DAILY> DAILYS { get; set; }
         public DailyViewModel()
         {
             LoadDaiLy();
             DeleteCommand = new MyICommand(OnDelete, CanDelete);
+            AddCommand = new MyICommand(OnAdd, CanAdd);   
+        }
+
+        private bool CanAdd()
+        {
+            return CanAddT!=true;
+        }
+
+        private void OnAdd()
+        {
+            ThemDL themDL = new ThemDL();
+            themDL.ShowDialog();
         }
 
         private DAILY _SelectedDAILYS;

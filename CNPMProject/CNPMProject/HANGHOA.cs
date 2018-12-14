@@ -11,20 +11,64 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class HANGHOA
+    using System.ComponentModel;
+
+    public partial class HANGHOA:INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HANGHOA()
         {
             this.CHITIETHANGHOAXUATs = new HashSet<CHITIETHANGHOAXUAT>();
         }
-    
-        public string MaHangHoa { get; set; }
-        public string TenMatHang { get; set; }
-        public Nullable<int> DonGia { get; set; }
-        public Nullable<int> SoLuongCon { get; set; }
-    
+
+        private string maHangHoa;
+        public string MaHangHoa { get { return maHangHoa; } set
+            {
+                if (maHangHoa!= value)
+                {
+                    maHangHoa = value;
+                    RaisePropertyChanged("MaHangHoa");
+                }
+            } }
+
+        private string tenMatHang;
+        public string TenMatHang { get { return tenMatHang; } set
+            {
+                if (tenMatHang != value)
+                {
+                    tenMatHang = value;
+                    RaisePropertyChanged("TenMatHang");
+                }
+            } }
+
+        private Nullable<int> donGia;
+        public Nullable<int> DonGia { get { return donGia; } set {
+                if (donGia != value)
+                {
+                    donGia = value;
+                    RaisePropertyChanged("DonGia");
+                }
+            } }
+
+        private Nullable<int> soLuongCon;
+        public Nullable<int> SoLuongCon { get { return soLuongCon; } set {
+                if (soLuongCon!=value)
+                {
+                    soLuongCon = value;
+                    RaisePropertyChanged("SoLuongCon");
+                }
+            } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHANGHOAXUAT> CHITIETHANGHOAXUATs { get; set; }
     }

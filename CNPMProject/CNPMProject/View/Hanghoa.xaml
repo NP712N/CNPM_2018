@@ -13,8 +13,16 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextOptions.TextRenderingMode="Auto"
      FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
+        
+        xmlns:vml = "clr-namespace:CNPMProject.VML"
+       
+        xmlns:viewModel="clr-namespace:CNPMProject.ViewModel"
+        vml:ViewModelLocator.AutoHookedUpViewModel = "True"
         WindowStyle="None" 
-        Title="Quản lý hàng hóa" Height="600" Width="800" Background="#AFBFAE">
+        Title="Quản lý hàng hóa" Height="600" Width="800" Background="#AFBFAE" Loaded="Window_Loaded">
+    <Window.DataContext>
+        <viewModel:HangHoaViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -261,32 +269,30 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                 </Grid>
                 <materialDesign:Card Grid.Row="1" Height="350" Width="770">
                     <DataGrid
-  ItemsSource="{Binding Items3}"
+                        Name="HangHoaViewControl"
+                        
+  ItemsSource="{Binding Path=HANGHOAS}"
   CanUserSortColumns="True"
   CanUserAddRows="False" 
   AutoGenerateColumns="False"
                 Width="auto" SelectionChanged="DataGrid_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-      Binding="{Binding Code}"
+      Binding="{Binding Path=MaHangHoa,Mode=OneWay}"
       Header="Mã hàng hóa"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Name}"
+      Binding="{Binding Path=TenMatHang,Mode=OneWay}"
       Header="Tên"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Description}"
-      Header="Ngày lập"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                            <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
-      Header="Số lượng"
+      Binding="{Binding Path=SoLuongCon, Mode=OneWay}"
+      Header="Số lượng còn"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
 
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding Path=DonGia, Mode=OneWay}"
       Header="Đơn giá"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
