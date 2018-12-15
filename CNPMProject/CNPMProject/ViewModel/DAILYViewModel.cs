@@ -35,21 +35,30 @@ namespace CNPMProject.ViewModel
         private DAILY _SelectedDAILYS;
         public DAILY SelectedDAILYS { get { return _SelectedDAILYS; }
             set {
-                _SelectedDAILYS = value;
-                DeleteCommand.RaiseCanExecuteChanged();
+                if (_SelectedDAILYS!= value)
+                {
+                    _SelectedDAILYS = value;
+                    DeleteCommand.RaiseCanExecuteChanged();
+                }
+                
             }
         }
 
         private bool CanDelete()
         {
-            return SelectedDAILYS != null;
+            return _SelectedDAILYS != null;
         }
 
         private void OnDelete()
         {
             using (var db = new QUANLYCACDAILYEntities())
             {
-                db.Database.SqlQuery<DAILY>("DeleteDaiLyByID", SelectedDAILYS.MaDaiLy);
+                db.DAILies.Remove(
+                    db.DAILies.Find(
+                 (from m in db.DAILies
+                 where m.MaDaiLy == SelectedDAILYS.MaDaiLy
+                 select m)
+                 ));
             }
         }
 
