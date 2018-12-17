@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.ComponentModel;
 
 namespace CNPMProject.ViewModel
 {
@@ -38,7 +39,7 @@ namespace CNPMProject.ViewModel
                 if (_SelectedDAILYS!= value)
                 {
                     _SelectedDAILYS = value;
-                    DeleteCommand.RaiseCanExecuteChanged();
+                    RaisePropertyChanged("SelectedDAILYS");
                 }
                 
             }
@@ -46,7 +47,12 @@ namespace CNPMProject.ViewModel
 
         private bool CanDelete()
         {
-            return _SelectedDAILYS != null;
+            if (SelectedDAILYS != null)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         private void OnDelete()
@@ -70,6 +76,16 @@ namespace CNPMProject.ViewModel
                 DAILYS = db.DAILies.ToList();
             }
         }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string propertyName)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
 
     }
 }

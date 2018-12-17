@@ -11,14 +11,60 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class CHITIETHANGHOAXUAT
+    using System.ComponentModel;
+
+    public partial class CHITIETHANGHOAXUAT: INotifyPropertyChanged
     {
-        public string MaPhieuXuat { get; set; }
-        public string MaHangHoa { get; set; }
-        public Nullable<int> SoLuong { get; set; }
-    
+        private string maPhieuXuat;
+        public string MaPhieuXuat
+        {
+            get { return maPhieuXuat; }
+            set
+            {
+                if (maPhieuXuat != value)
+                {
+                    maPhieuXuat = value;
+                    RaisePropertyChanged("MaPhieuXuat");
+                } } }
+
+        private string maHangHoa;
+        public string MaHangHoa
+        {
+            get { return maHangHoa; }
+            set
+            {
+                if (MaHangHoa != value)
+                {
+                    maHangHoa = value;
+                    RaisePropertyChanged("MaHangHoa");
+                }
+            }
+        }
+
+        private Nullable<int> soLuong;
+        public Nullable<int> SoLuong
+        {
+            get { return soLuong; }
+            set
+            {
+                if (soLuong !=value)
+                {
+                    soLuong = value;
+                    RaisePropertyChanged("SoLuong");
+                } } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         public virtual HANGHOA HANGHOA { get; set; }
         public virtual PHIEUXUAT PHIEUXUAT { get; set; }
+
+
     }
 }

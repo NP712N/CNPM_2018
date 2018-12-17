@@ -11,19 +11,65 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class DINHMUC
+    using System.ComponentModel;
+
+    public partial class DINHMUC:INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DINHMUC()
         {
             this.DAILies = new HashSet<DAILY>();
         }
-    
-        public string MaDinhMuc { get; set; }
-        public string CapDaiLy { get; set; }
-        public string NoiDungDinhMuc { get; set; }
-    
+
+        private string maDinhMuc;
+        public string MaDinhMuc
+        {
+            get { return maDinhMuc; }
+            set
+            {
+                if (maDinhMuc!=value)
+                {
+                    maDinhMuc = value;
+                    RaisePropertyChanged("MaDinhMuc");
+                }
+            } }
+
+        private string capDaiLy;
+        public string CapDaiLy
+        {
+            get { return capDaiLy; }
+            set
+            {
+                if (capDaiLy != value)
+                {
+                    capDaiLy = value;
+                    RaisePropertyChanged("CapDaiLy");
+                }
+            } }
+
+        private string noiDungDinhMuc;
+        public string NoiDungDinhMuc
+        {
+            get { return noiDungDinhMuc; }
+            set
+            {
+                if (noiDungDinhMuc != value)
+                {
+                    noiDungDinhMuc = value;
+                    RaisePropertyChanged("NoiDungDinhMuc");
+                }
+            } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAILY> DAILies { get; set; }
     }

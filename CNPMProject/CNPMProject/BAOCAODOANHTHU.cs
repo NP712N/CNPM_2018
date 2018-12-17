@@ -11,15 +11,92 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class BAOCAODOANHTHU
+    using System.ComponentModel;
+
+    public partial class BAOCAODOANHTHU: INotifyPropertyChanged
     {
-        public string MaBaoCaoDoanhThu { get; set; }
-        public string MaDaiLy { get; set; }
-        public Nullable<System.DateTime> NgayLap { get; set; }
-        public Nullable<System.DateTime> DenNgay { get; set; }
-        public Nullable<double> TongDoanhThu { get; set; }
-    
+        private string maBaoCaoDoanhThu;
+        public string MaBaoCaoDoanhThu
+        {
+            get { return maBaoCaoDoanhThu; }
+            set
+            {
+                if (maBaoCaoDoanhThu != value)
+                {
+                    maBaoCaoDoanhThu = value;
+                    RaisePropertyChanged("MaBaoCaoDoanhThu");
+                }
+            } }
+
+
+        private string maDaiLy;
+        public string MaDaiLy
+        {
+            get { return maDaiLy; }
+            set
+            {
+                if (maDaiLy != value)
+                {
+                    maDaiLy = value;
+                    RaisePropertyChanged("MaDaiLy");
+                }
+            }
+        }
+
+        private Nullable<DateTime> ngayLap;
+
+
+        public Nullable<System.DateTime> NgayLap
+        {
+            get { return ngayLap; }
+            set
+            {
+                if (ngayLap != value)
+                {
+                    ngayLap = value;
+                    RaisePropertyChanged("NgayLap");
+                }
+            }
+        }
+
+
+        private Nullable<DateTime> denNgay;
+        public Nullable<System.DateTime> DenNgay
+        {
+            get { return denNgay; }
+            set
+            {
+                if (denNgay != value)
+                {
+                    denNgay = value;
+                    RaisePropertyChanged("DenNgay");
+                }
+            }
+        }
+
+        private Nullable<double> tongDoanhThu;
+        public Nullable<double> TongDoanhThu
+        {
+            get { return tongDoanhThu; }
+            set
+            {
+                if (tongDoanhThu != value)
+                {
+                    tongDoanhThu = value;
+                    RaisePropertyChanged("TongDoanhThu");
+                }
+            } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         public virtual DAILY DAILY { get; set; }
     }
 }

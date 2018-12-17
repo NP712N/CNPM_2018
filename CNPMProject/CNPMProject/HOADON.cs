@@ -33,6 +33,7 @@ namespace CNPMProject
                     RaisePropertyChanged("MaHoaDon");
                 } } }
 
+
         private string maDonHang;
         public string MaDonHang
         {

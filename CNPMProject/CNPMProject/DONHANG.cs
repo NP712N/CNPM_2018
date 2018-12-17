@@ -11,19 +11,65 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class DONHANG
+    using System.ComponentModel;
+
+    public partial class DONHANG:INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DONHANG()
         {
             this.HOADONs = new HashSet<HOADON>();
         }
-    
-        public string MaDonHang { get; set; }
-        public string MaDaiLy { get; set; }
-        public Nullable<System.DateTime> NgayDangKy { get; set; }
-    
+
+        private string maDonHang;
+        public string MaDonHang
+        {
+            get { return maDonHang; }
+            set
+            {
+                if (maDonHang!=value)
+                {
+                    maDonHang = value;
+                    RaisePropertyChanged("MaDonHang");
+                } } }
+
+
+        private string maDaiLy;
+        public string MaDaiLy
+        {
+            get { return maDaiLy; }
+            set
+            {
+                if (maDaiLy != value)
+                {
+                    maDaiLy = value;
+                    RaisePropertyChanged("MaDaiLy");
+                }
+            }
+        }
+
+        private Nullable<DateTime> ngayDangKy;
+        public Nullable<System.DateTime> NgayDangKy
+        {
+            get { return ngayDangKy; }
+            set
+            {
+                if (ngayDangKy!=value)
+                {
+                    ngayDangKy = value;
+                    RaisePropertyChanged("NgayDangKy");
+                }
+            } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         public virtual DAILY DAILY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }

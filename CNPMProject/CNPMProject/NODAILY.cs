@@ -11,14 +11,76 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class NODAILY
+    using System.ComponentModel;
+
+    public partial class NODAILY:INotifyPropertyChanged
     {
-        public string MaNoDaiLy { get; set; }
-        public string MaDaiLy { get; set; }
-        public string MaPhieuThu { get; set; }
-        public Nullable<double> TienNo { get; set; }
-    
+
+        private string maNoDaiLy;
+        public string MaNoDaiLy
+        {
+            get { return maNoDaiLy; }
+            set
+            {
+                if (maNoDaiLy != value)
+                {
+                    maNoDaiLy = value;
+                    RaisePropertyChanged("MaNoDaiLy");
+                }
+            }
+        }
+
+        private string maDaiLy;
+        public string MaDaiLy
+        {
+            get { return maDaiLy; }
+            set
+            {
+                if (maDaiLy != value)
+                {
+                    maDaiLy = value;
+                    RaisePropertyChanged("MaDaiLy");
+                }
+            }
+        }
+
+
+        private string maPhieuThu;
+        public string MaPhieuThu
+        {
+            get { return maPhieuThu; }
+            set
+            {
+                if (maPhieuThu != value)
+                {
+                    maPhieuThu = value;
+                    RaisePropertyChanged("MaPhieuThu");
+                }
+            }
+        }
+
+        private Nullable<double> tienNo;
+        public Nullable<double> TienNo
+        {
+            get { return tienNo; }
+            set
+            {
+                if (tienNo != value)
+                {
+                    tienNo = value;
+                    RaisePropertyChanged("TienNo");
+                }
+            } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         public virtual DAILY DAILY { get; set; }
         public virtual PHIEUTHU PHIEUTHU { get; set; }
     }

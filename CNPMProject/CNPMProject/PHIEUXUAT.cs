@@ -11,8 +11,9 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class PHIEUXUAT
+    using System.ComponentModel;
+
+    public partial class PHIEUXUAT:INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PHIEUXUAT()
@@ -20,11 +21,55 @@ namespace CNPMProject
             this.CHITIETHANGHOAXUATs = new HashSet<CHITIETHANGHOAXUAT>();
             this.HOADONs = new HashSet<HOADON>();
         }
-    
-        public string MaPhieuXuat { get; set; }
-        public Nullable<System.DateTime> NgayXuat { get; set; }
-        public Nullable<double> ThanhTien { get; set; }
-    
+
+        private string maPhieuXuat;
+        public string MaPhieuXuat
+        {
+            get { return maPhieuXuat; }
+            set
+            {
+                if (maPhieuXuat != value)
+                {
+                    maPhieuXuat = value;
+                    RaisePropertyChanged("MaPhieuXuat");
+                }
+            } }
+
+        private Nullable<DateTime> ngayXuat;
+        public Nullable<System.DateTime> NgayXuat
+        {
+            get { return ngayXuat; }
+            set
+            {
+                if (ngayXuat != value)
+                {
+                    ngayXuat = value;
+                    RaisePropertyChanged("NgayXuat");
+                }
+            } }
+
+        private Nullable<double> thanhTien;
+        public Nullable<double> ThanhTien
+        {
+            get { return thanhTien; }
+            set
+            {
+                if (thanhTien!=value)
+                {
+                    thanhTien = value;
+                    RaisePropertyChanged("ThanhTien");
+                }
+            } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHANGHOAXUAT> CHITIETHANGHOAXUATs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

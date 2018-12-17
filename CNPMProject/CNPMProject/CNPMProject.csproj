@@ -181,6 +181,7 @@
     <Compile Include="View\Uudai.xaml.cs">
       <DependentUpon>Uudai.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VML\SelectedItemToDAILYConverter.cs" />
     <Compile Include="VML\ViewModelLocator.cs" />
     <Page Include="View\DaiLy.xaml">
       <SubType>Designer</SubType>

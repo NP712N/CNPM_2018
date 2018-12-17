@@ -11,15 +11,89 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class BAOCAOCONGNO
+    using System.ComponentModel;
+
+    public partial class BAOCAOCONGNO: INotifyPropertyChanged
+
     {
-        public string MaBaoCaoCongNo { get; set; }
-        public string MaDaiLy { get; set; }
-        public Nullable<System.DateTime> NgayLap { get; set; }
-        public Nullable<System.DateTime> DenNgay { get; set; }
-        public Nullable<double> TongNo { get; set; }
-    
+        private string maBaoCaoCongNo;
+        public string MaBaoCaoCongNo
+        {
+            get { return maBaoCaoCongNo; }
+            set
+            {
+                if (maBaoCaoCongNo != value)
+                {
+                    maBaoCaoCongNo = value;
+                    RaisePropertyChanged("MaBaoCaoCongNo");
+                }
+            } }
+
+        private string maDaiLy;
+        public string MaDaiLy
+        {
+            get { return maDaiLy; }
+            set
+            {
+                if (maDaiLy!=value)
+                {
+                    maDaiLy = value;
+                    RaisePropertyChanged("MaDaiLy");
+                }
+            } }
+
+        private Nullable<DateTime> ngayLap;
+        public Nullable<System.DateTime> NgayLap
+        {
+            get { return ngayLap; }
+            set
+            {
+                if (ngayLap != value)
+                {
+                    ngayLap = value;
+                    RaisePropertyChanged("NgayLap");
+                }
+            } }
+
+
+        private Nullable<DateTime> denNgay;
+        public Nullable<System.DateTime> DenNgay
+        {
+            get { return denNgay; }
+            set
+            {
+                if (denNgay != value)
+                {
+                    denNgay = value;
+                    RaisePropertyChanged("DenNgay");
+                }
+            }
+        }
+
+        private Nullable<Double> tongNo;
+        public Nullable<System.Double> TongNo
+        {
+            get { return tongNo; }
+            set
+            {
+                if (tongNo != value)
+                {
+                    tongNo = value;
+                    RaisePropertyChanged("TongNo");
+                }
+            }
+        }
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
+
         public virtual DAILY DAILY { get; set; }
     }
 }

@@ -11,20 +11,79 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class PHIEUTHU
+    using System.ComponentModel;
+
+    public partial class PHIEUTHU:INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PHIEUTHU()
         {
             this.NODAILies = new HashSet<NODAILY>();
         }
-    
-        public string MaPhieuThu { get; set; }
-        public string MaHoaDon { get; set; }
-        public Nullable<System.DateTime> NgayLapPhieu { get; set; }
-        public Nullable<double> SoTienDaThu { get; set; }
-    
+
+        private string maPhieuThu;
+        public string MaPhieuThu
+        {
+            get { return maPhieuThu; }
+            set
+            {
+                if (maPhieuThu != value)
+                {
+                    maPhieuThu = value;
+                    RaisePropertyChanged("MaPhieuThu");
+                }
+            }
+        }
+
+        private string maHoaDon;
+        public string MaHoaDon
+        {
+            get { return maHoaDon; }
+            set
+            {
+                if (maHoaDon != value)
+                {
+                    maHoaDon = value;
+                    RaisePropertyChanged("MaHoaDon");
+                }
+            }
+        }
+
+        private Nullable<DateTime> ngayLapPhieu;
+        public Nullable<System.DateTime> NgayLapPhieu
+        {
+            get { return ngayLapPhieu; }
+            set
+            {
+                if (ngayLapPhieu != value)
+                {
+                    ngayLapPhieu = value;
+                    RaisePropertyChanged("NgayLapPhieu");
+                }
+            } }
+
+        private Nullable<double> soTienDaThu;
+        public Nullable<double> SoTienDaThu
+        {
+            get { return soTienDaThu; }
+            set
+            {
+                if (soTienDaThu != value)
+                {
+                    soTienDaThu = value;
+                    RaisePropertyChanged("SoTienDaThu");
+                }
+            } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         public virtual HOADON HOADON { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NODAILY> NODAILies { get; set; }

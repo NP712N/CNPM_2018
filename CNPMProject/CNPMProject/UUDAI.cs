@@ -11,22 +11,106 @@ namespace CNPMProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class UUDAI
+    using System.ComponentModel;
+
+    public partial class UUDAI:INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UUDAI()
         {
             this.DAILies = new HashSet<DAILY>();
         }
-    
-        public string MaUuDai { get; set; }
-        public string TenUuDai { get; set; }
-        public Nullable<System.DateTime> NgayBatDau { get; set; }
-        public Nullable<System.DateTime> NgayKetThuc { get; set; }
-        public string CapDaiLy { get; set; }
-        public Nullable<double> PhanTram { get; set; }
-    
+
+        private string maUuDai;
+        public string MaUuDai
+        {
+            get { return maUuDai; }
+            set
+            {
+                if (maUuDai!=value)
+                {
+                    maUuDai = value;
+                    RaisePropertyChanged("MaUuDai");
+                }
+            } }
+
+
+        private string tenUuDai;
+        public string TenUuDai
+        {
+            get { return tenUuDai; }
+            set
+            {
+                if (tenUuDai != value)
+                { 
+                    tenUuDai = value;
+                    RaisePropertyChanged("TenUuDai");
+                }
+            }
+        }
+
+        private Nullable<DateTime> ngayBatDau;
+        public Nullable<System.DateTime> NgayBatDau
+        {
+            get { return ngayBatDau; }
+            set
+            {
+                if (ngayBatDau!=value)
+                {
+                    ngayBatDau = value;
+                    RaisePropertyChanged("NgayBatDau");
+                } } }
+
+
+        private Nullable<DateTime> ngayKetThuc;
+
+        public Nullable<System.DateTime> NgayKetThuc
+        {
+            get { return ngayKetThuc; }
+            set
+            {
+                if (ngayKetThuc != value)
+                {
+                    ngayKetThuc = value;
+                    RaisePropertyChanged("NgayKetThuc");
+                }
+            }
+        }
+
+        private string capDaiLy;
+        public string CapDaiLy
+        {
+            get { return capDaiLy; }
+            set
+            {
+                if (capDaiLy!=value)
+                {
+                    capDaiLy = value;
+                    RaisePropertyChanged("CapDaiLy");
+                }
+            } }
+
+        private Nullable<double> phanTram;
+        public Nullable<double> PhanTram
+        {
+            get { return phanTram; }; set
+            {
+                if (phanTram!=value)
+                {
+                    phanTram = value;
+                    RaisePropertyChanged("PhanTram");
+                }
+            } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAILY> DAILies { get; set; }
     }
