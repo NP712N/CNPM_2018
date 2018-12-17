@@ -93,7 +93,7 @@ namespace CNPMProject
         private Nullable<double> phanTram;
         public Nullable<double> PhanTram
         {
-            get { return phanTram; }; set
+            get { return phanTram; } set
             {
                 if (phanTram!=value)
                 {

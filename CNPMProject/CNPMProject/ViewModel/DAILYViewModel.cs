@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace CNPMProject.ViewModel
 {
-    public class DailyViewModel
+    public class DailyViewModel:INotifyPropertyChanged
     {
         public MyICommand DeleteCommand { get; set; }
         public MyICommand AddCommand { get; set; }
@@ -18,8 +19,9 @@ namespace CNPMProject.ViewModel
         public DailyViewModel()
         {
             LoadDaiLy();
+            AddCommand = new MyICommand(OnAdd, CanAdd);
+
             DeleteCommand = new MyICommand(OnDelete, CanDelete);
-            AddCommand = new MyICommand(OnAdd, CanAdd);   
         }
 
         private bool CanAdd()
@@ -82,7 +84,7 @@ namespace CNPMProject.ViewModel
             var handler = PropertyChanged;
             if (handler != null)
             {
-                handler(this, new PropertyChangedEventArgs(propertyName));
+                handler.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 

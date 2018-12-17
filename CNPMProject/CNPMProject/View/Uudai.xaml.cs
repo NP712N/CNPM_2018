@@ -22,6 +22,7 @@ namespace CNPMProject
         public Uudai()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.UuDaiViewModel();
         }
 
         private void button_closewindow_Click(object sender, RoutedEventArgs e)

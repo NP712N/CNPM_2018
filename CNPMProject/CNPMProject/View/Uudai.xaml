@@ -14,7 +14,15 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
         WindowStyle="None" 
+        
+        xmlns:vml = "clr-namespace:CNPMProject.VML"
+        xmlns:viewModel="clr-namespace:CNPMProject.ViewModel"
+        vml:ViewModelLocator.AutoHookedUpViewModel = "True"
+        
         Title="Quản lý ưu đãi" Height="600" Width="800" Background="#AFBFAE">
+    <Window.DataContext>
+        <viewModel:UuDaiViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -261,47 +269,38 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                 </Grid>
                 <materialDesign:Card Grid.Row="1" Height="350" Width="770">
                     <DataGrid
-  ItemsSource="{Binding Items3}"
+  ItemsSource="{Binding Path=UUDAIS}"
   CanUserSortColumns="True"
   CanUserAddRows="False" 
   AutoGenerateColumns="False"
                 Width="auto">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-      Binding="{Binding Code}"
+      Binding="{Binding MaUuDai}"
       Header="Mã ưu đãi"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Name}"
+      Binding="{Binding TenUuDai}"
       Header="Tên ưu đãi"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Description}"
-      Header="Ngày lập"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                            <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Date}"
+      Binding="{Binding NgayBatDau}"
       Header="Ngày bắt đầu"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
 
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Date}"
+      Binding="{Binding NgayKetThuc}"
       Header="Ngày kết thúc"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Numeric}"
+      Binding="{Binding CapDaiLy}"
       Header="Cấp đại lý"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Decription}"
-      Header="Loại"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                            </materialDesign:MaterialDataGridTextColumn>
-                            <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Decription}"
+      Binding="{Binding NoiDung}"
       Header="Nội dung"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>

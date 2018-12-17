@@ -25,7 +25,7 @@ namespace CNPMProject
 
         public void RaiseCanExecuteChanged()
         {
-            CanExecuteChanged(this, EventArgs.Empty);
+            CommandManager.InvalidateRequerySuggested();
         }
 
         bool ICommand.CanExecute(object parameter)
@@ -44,8 +44,12 @@ namespace CNPMProject
             return false;
         }
 
-      // Prism commands solve this in their implementation 
-        public event EventHandler CanExecuteChanged = delegate { };
+        // Prism commands solve this in their implementation 
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         void ICommand.Execute(object parameter)
         {
