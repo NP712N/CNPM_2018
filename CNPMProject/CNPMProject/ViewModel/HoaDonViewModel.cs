@@ -43,6 +43,7 @@ namespace CNPMProject.ViewModel
         public HoaDonViewModel()
         {
             LoadHoaDon();
+
         }
 
         private void LoadHoaDon()
