@@ -282,8 +282,8 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       Header="Mã hóa đơn"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=MaHangHoa}"
-      Header="Mã hàng hóa"
+      Binding="{Binding Path=TenMatHang}"
+      Header="Tên mặt hàng"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                             <materialDesign:MaterialDataGridTextColumn
       Binding="{Binding Path=NgayLap}"
@@ -298,12 +298,25 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
                             <materialDesign:MaterialDataGridTextColumn
+      
+      Binding="{Binding Path=DonGia}"
+      Header="Đơn giá"
+      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            </materialDesign:MaterialDataGridTextColumn>
+
+                            <materialDesign:MaterialDataGridTextColumn
       Binding="{Binding Path=ThanhTien}"
       Header="Thành tiền"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=TienSauUD}"
+      Binding="{Binding Path=PhanTram}"
+      Header="Phần trăm ưu đãi"
+      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            </materialDesign:MaterialDataGridTextColumn>
+
+                            <materialDesign:MaterialDataGridTextColumn
+      Binding="{Binding Path=TienSauUuDai}"
       Header="Tiền sau ưu đãi"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>

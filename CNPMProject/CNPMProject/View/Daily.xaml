@@ -185,9 +185,10 @@
                                                 Opacity=".56" />
                                         </Button>
                                         
-                                        <TextBox
-                                            Text="{Binding ElementName=DaiLyViewControl, Path=SelectedItem.TenDaiLy}"
+                                        <TextBox 
+                                            Text="{Binding SearchDAILYSCommand}"
                                             Grid.Column="1"
+                                            Name="txtsearchDaiLy"
                                             Margin="8 0 0 0"
                                             FontSize="16"
                                             materialDesign:HintAssist.Hint="Search"
@@ -279,6 +280,7 @@
                 </Grid>
                 <materialDesign:Card Grid.Row="1" Height="350" Width="770">
                     <DataGrid
+                        
                         ItemsSource="{Binding Path=DAILYS, Mode=TwoWay}"
                         CanUserSortColumns="True"
                         CanUserAddRows="False" 

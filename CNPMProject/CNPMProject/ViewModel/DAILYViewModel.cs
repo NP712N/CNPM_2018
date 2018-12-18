@@ -13,15 +13,27 @@ namespace CNPMProject.ViewModel
     public class DailyViewModel:INotifyPropertyChanged
     {
         public MyICommand DeleteCommand { get; set; }
+        public MyICommand SearchDAILYSCommand { get; set; }
         public MyICommand AddCommand { get; set; }
         public bool CanAddT { get; set; }
+        public bool CanSearchT { get; set; }
         public List<DAILY> DAILYS { get; set; }
         public DailyViewModel()
         {
             LoadDaiLy();
             AddCommand = new MyICommand(OnAdd, CanAdd);
-
             DeleteCommand = new MyICommand(OnDelete, CanDelete);
+            SearchDAILYSCommand = new MyICommand(OnSearch,CanSearch);
+        }
+
+        private bool CanSearch()
+        {
+            return CanSearchT != true;
+        }
+
+        private void OnSearch()
+        {
+            
         }
 
         private bool CanAdd()
@@ -41,6 +53,7 @@ namespace CNPMProject.ViewModel
                 if (_SelectedDAILYS!= value)
                 {
                     _SelectedDAILYS = value;
+                    DeleteCommand.RaiseCanExecuteChanged();
                     RaisePropertyChanged("SelectedDAILYS");
                 }
                 
@@ -49,12 +62,7 @@ namespace CNPMProject.ViewModel
 
         private bool CanDelete()
         {
-            if (SelectedDAILYS != null)
-            {
-                return true;
-            }
-            else
-                return false;
+            return SelectedDAILYS != null;
         }
 
         private void OnDelete()
