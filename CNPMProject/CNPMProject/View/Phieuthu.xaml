@@ -269,39 +269,39 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                 </Grid>
                 <materialDesign:Card Grid.Row="1" Height="350" Width="770">
                     <DataGrid
-  ItemsSource="{Binding PHIEUTHUS}"
+  ItemsSource="{Binding Path=PHIEUTHUS}"
   CanUserSortColumns="True"
   CanUserAddRows="False" 
   AutoGenerateColumns="False"
                 Width="auto">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-      Binding="{Binding MaPhieuThu}"
+      Binding="{Binding Path=MaPhieuThu}"
       Header="Mã phiếu thu"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding MaHoaDon}"
+      Binding="{Binding Path=MaHoaDon}"
       Header="Mã hóa đơn"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
 
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding NgayLapPhieu}"
+      Binding="{Binding Path=NgayLap}"
       Header="Ngày lập"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding ThanhTien}"
+      Binding="{Binding Path=TienPhaiTra}"
       Header="Tiền phải trả"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
 
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding SoTienDaThu}"
+      Binding="{Binding Path=TienThu}"
       Header="Tiền thu"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding TienConThieu}"
+      Binding="{Binding Path=TienNo}"
       Header="Tiền nợ"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>

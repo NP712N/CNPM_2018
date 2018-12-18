@@ -22,6 +22,7 @@ namespace CNPMProject
         public ThemDL()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.ThemDLViewModel();
         }
 
 

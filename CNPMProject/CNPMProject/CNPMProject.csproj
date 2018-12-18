@@ -138,6 +138,7 @@
     <Compile Include="ViewModel\HangHoaViewModel.cs" />
     <Compile Include="ViewModel\HoaDonViewModel.cs" />
     <Compile Include="ViewModel\PhieuThuViewModel.cs" />
+    <Compile Include="ViewModel\ThemDLViewModel.cs" />
     <Compile Include="ViewModel\UuDaiViewModel.cs" />
     <Compile Include="View\DonHang.xaml.cs">
       <DependentUpon>DonHang.xaml</DependentUpon>

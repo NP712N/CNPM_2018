@@ -14,7 +14,13 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         ResizeMode="NoResize"
         WindowStyle="None" 
         mc:Ignorable="d"
+        xmlns:vml = "clr-namespace:CNPMProject.VML"       
+        xmlns:viewModel="clr-namespace:CNPMProject.ViewModel"
+        vml:ViewModelLocator.AutoHookedUpViewModel = "True"
         Title="Quản lý đại lý" Height="450" Width="600" Background="#ECC3A2">
+    <Window.DataContext>
+        <viewModel:ThemDLViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -140,12 +146,14 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
   materialDesign:HintAssist.Hint="CMND"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="28,96,0,0" />
                                 <TextBox
+                                    Name="txt_hotenchudaily"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Width="170"
   materialDesign:HintAssist.Hint="Họ tên chủ đại lý"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="28,139,0,0" />
                                 <TextBox
+                                    Name="txt_tendaily"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Width="150"
@@ -154,25 +162,20 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
 
                                 <ComboBox
                                Name="cb_cap"
+                                    ItemsSource="{Binding Path=DINHMUCS}"
+                                   DisplayMemberPath="CapDaiLy"
+                                    SelectedItem="{Binding  MaDinhMuc,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Width="120"
 materialDesign:HintAssist.Hint="Cấp đại lý"
   Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="29.8,139,0,-2.4" Grid.Column="1">
-                                    <ComboBoxItem>
-                                        1
-                                    </ComboBoxItem>
-                                    <ComboBoxItem>
-                                        2
-                                    </ComboBoxItem>
-                                    <ComboBoxItem>
-                                        3
-                                    </ComboBoxItem>
                                 </ComboBox>
                                 <DatePicker
                                 VerticalAlignment="Top"
                     HorizontalAlignment="Left"
   Width="120"
+                                    
   materialDesign:HintAssist.Hint="Ngày lập"
   Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="29.8,95,0,0" Grid.Column="1"/>
                                 <DatePicker
@@ -213,7 +216,9 @@ materialDesign:HintAssist.Hint="Cấp đại lý"
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button
+                    
                             Name="button_add"
+                    Command="{Binding AddCommand}"
                             Grid.Column="0" Grid.Row="1"
                             Background="#609194"
     Style="{StaticResource MaterialDesignRaisedLightButton}"

@@ -36,6 +36,11 @@ namespace CNPMProject.VML
             var viewType = d.GetType();
             string temp2 = viewType.ToString().Substring(12).ToUpper();
             string temp1 = viewType.ToString().Substring(0,12);
+
+            if (temp2=="THEMDL")
+            {
+                temp2 = "DAILY";
+            }
             string str = temp1+temp2;
             
             str = str.Replace(".View.", ".ViewModel.");

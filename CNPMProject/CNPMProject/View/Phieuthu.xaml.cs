@@ -22,6 +22,7 @@ namespace CNPMProject
         public Phieuthu()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.PhieuThuViewModel();
         }
 
 
