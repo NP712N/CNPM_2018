@@ -9,7 +9,7 @@ namespace CNPMProject.ViewModel
 {
     public class ThemDLViewModel:INotifyPropertyChanged
     {
-        MyICommand AddCommand { get; set; }
+        
         public List<DINHMUC> DINHMUCS { get; set; }
         public List<DAILY> DAILYS { get; set; }
         public DAILY _DAILY { get; set; }
@@ -22,19 +22,11 @@ namespace CNPMProject.ViewModel
             {
                 DINHMUCS = db.DINHMUCs.ToList();
             }
-            AddCommand = new MyICommand(OnAdd, CanAdd);
-
-        }
-
-        private void OnAdd()
-        {
             
+
         }
 
-        private bool CanAdd()
-        {
-            return _DAILY != null;
-        }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged(string propertyName)

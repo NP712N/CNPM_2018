@@ -14,6 +14,7 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         ResizeMode="NoResize"
         WindowStyle="None" 
         mc:Ignorable="d"
+        
         xmlns:vml = "clr-namespace:CNPMProject.VML"       
         xmlns:viewModel="clr-namespace:CNPMProject.ViewModel"
         vml:ViewModelLocator.AutoHookedUpViewModel = "True"
@@ -127,8 +128,10 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                                 <TextBox
                                 Name="txt_madaily"
                     VerticalAlignment="Top"
+                                    
                     HorizontalAlignment="Left"
                     Width="100"
+                                    
   materialDesign:HintAssist.Hint="Mã đại lý"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="28,10,0,0" />
                                 <TextBox
@@ -175,13 +178,14 @@ materialDesign:HintAssist.Hint="Cấp đại lý"
                                 VerticalAlignment="Top"
                     HorizontalAlignment="Left"
   Width="120"
-                                    
+                                    Name="dp_ngaylap"
   materialDesign:HintAssist.Hint="Ngày lập"
   Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="29.8,95,0,0" Grid.Column="1"/>
                                 <DatePicker
                                 VerticalAlignment="Top"
                     HorizontalAlignment="Left"
   Width="120"
+                                    Name="dp_ngaysinh"
   materialDesign:HintAssist.Hint="Ngày sinh"
   Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="29.8,52,0,0" RenderTransformOrigin="0.704,0.701" Grid.Column="1"/>
 
@@ -198,7 +202,7 @@ materialDesign:HintAssist.Hint="Cấp đại lý"
                                 <TextBox
     VerticalAlignment="Top"
                                     Width="200"
-
+                                    Name="txt_noidung"
     materialDesign:HintAssist.Hint="Nội dung"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="29,0,403.4,0"/>
                             </Grid>

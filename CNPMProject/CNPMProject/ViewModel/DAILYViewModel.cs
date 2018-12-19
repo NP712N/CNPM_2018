@@ -12,18 +12,51 @@ namespace CNPMProject.ViewModel
 {
     public class DailyViewModel:INotifyPropertyChanged
     {
+        MyICommand AddCommand { get; set; }
         public MyICommand DeleteCommand { get; set; }
         public MyICommand SearchDAILYSCommand { get; set; }
-        public MyICommand AddCommand { get; set; }
+
         public bool CanAddT { get; set; }
         public bool CanSearchT { get; set; }
         public List<DAILY> DAILYS { get; set; }
         public DailyViewModel()
         {
             LoadDaiLy();
-            AddCommand = new MyICommand(OnAdd, CanAdd);
             DeleteCommand = new MyICommand(OnDelete, CanDelete);
             SearchDAILYSCommand = new MyICommand(OnSearch,CanSearch);
+            AddCommand = new MyICommand(OnAdd, CanAdd);
+        }
+        private void OnAdd()
+        {
+            ThemDL themDL = new ThemDL();
+            using (var db = new QUANLYCACDAILYEntities())
+            {
+                DAILY temp = new DAILY();
+                temp.MaDaiLy = themDL.txt_madaily.ToString();
+                temp.MaHopDong = themDL.txt_mahopdong.ToString();
+                temp.CMND = themDL.txt_cmnd.ToString();
+                temp.HoTenChuDaiLy = themDL.txt_hotenchudaily.ToString();
+                temp.NoiDung = themDL.txt_noidung.ToString();
+                temp.TenDaiLy = themDL.txt_tendaily.ToString();
+                temp.NgaySinh = DateTime.Parse(themDL.dp_ngaysinh.ToString());
+                temp.NgayLap = DateTime.Parse(themDL.dp_ngaylap.ToString());
+                temp.CapDaiLy = themDL.cb_cap.SelectedItem.ToString();
+
+                try
+                {
+                    db.DAILies.Add(temp);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+            themDL.ShowDialog();
+        }
+
+        private bool CanAdd()
+        {
+            return CanAddT != true ;
         }
 
         private bool CanSearch()
@@ -35,17 +68,7 @@ namespace CNPMProject.ViewModel
         {
             
         }
-
-        private bool CanAdd()
-        {
-            return CanAddT!=true;
-        }
-
-        private void OnAdd()
-        {
-            ThemDL themDL = new ThemDL();
-            themDL.ShowDialog();
-        }
+        
 
         private DAILY _SelectedDAILYS;
         public DAILY SelectedDAILYS { get { return _SelectedDAILYS; }

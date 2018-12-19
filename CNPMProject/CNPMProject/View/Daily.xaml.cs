@@ -46,5 +46,7 @@ namespace CNPMProject
             dAILYViewModel.LoadDaiLy();
             DaiLyViewControl.DataContext = dAILYViewModel;
         }
+
+       
     }
 }
