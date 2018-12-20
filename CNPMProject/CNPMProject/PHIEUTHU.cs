@@ -13,7 +13,7 @@ namespace CNPMProject
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class PHIEUTHU:INotifyPropertyChanged
+    public partial class PHIEUTHU
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PHIEUTHU()
@@ -30,7 +30,6 @@ namespace CNPMProject
                 if (maPhieuThu != value)
                 {
                     maPhieuThu = value;
-                    RaisePropertyChanged("MaPhieuThu");
                 }
             }
         }
@@ -44,7 +43,6 @@ namespace CNPMProject
                 if (maHoaDon != value)
                 {
                     maHoaDon = value;
-                    RaisePropertyChanged("MaHoaDon");
                 }
             }
         }
@@ -58,7 +56,6 @@ namespace CNPMProject
                 if (ngayLapPhieu != value)
                 {
                     ngayLapPhieu = value;
-                    RaisePropertyChanged("NgayLapPhieu");
                 }
             } }
 
@@ -71,18 +68,8 @@ namespace CNPMProject
                 if (soTienDaThu != value)
                 {
                     soTienDaThu = value;
-                    RaisePropertyChanged("SoTienDaThu");
                 }
             } }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
 
         public virtual HOADON HOADON { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -19,9 +19,7 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         xmlns:viewModel="clr-namespace:CNPMProject.ViewModel"
         vml:ViewModelLocator.AutoHookedUpViewModel = "True"
         Title="Quản lý đại lý" Height="450" Width="600" Background="#ECC3A2">
-    <Window.DataContext>
-        <viewModel:ThemDLViewModel/>
-    </Window.DataContext>
+
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -116,10 +114,6 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     SnapsToDevicePixels="True" Margin="10,10,10,0">
                     <materialDesign:Card Height="300">
                         <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="AUTO"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
@@ -138,23 +132,23 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                                 Name="txt_mahopdong"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
-                    Width="120"
+                    Width="127"
   materialDesign:HintAssist.Hint="Mã hợp đồng"
-  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="28,53,0,0" />
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="29,53,0,0"/>
                                 <TextBox
                                 Name="txt_cmnd"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Width="120"
   materialDesign:HintAssist.Hint="CMND"
-  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="28,96,0,0" />
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="31,140,0,0" />
                                 <TextBox
                                     Name="txt_hotenchudaily"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Width="170"
   materialDesign:HintAssist.Hint="Họ tên chủ đại lý"
-  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="28,139,0,0" />
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="29,185,0,0" />
                                 <TextBox
                                     Name="txt_tendaily"
                     VerticalAlignment="Top"
@@ -163,17 +157,15 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
   materialDesign:HintAssist.Hint="Tên đại lý"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Grid.Column="1" Margin="29.8,11,0,0" />
 
-                                <ComboBox
-                               Name="cb_cap"
-                                    ItemsSource="{Binding Path=DINHMUCS}"
-                                   DisplayMemberPath="CapDaiLy"
-                                    SelectedItem="{Binding  MaDinhMuc,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                                <TextBox
+                               Name="txt_cap"
+                                    
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Width="120"
 materialDesign:HintAssist.Hint="Cấp đại lý"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="29.8,139,0,-2.4" Grid.Column="1">
-                                </ComboBox>
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Margin="31.2,138,0,0">
+                                </TextBox>
                                 <DatePicker
                                 VerticalAlignment="Top"
                     HorizontalAlignment="Left"
@@ -187,7 +179,17 @@ materialDesign:HintAssist.Hint="Cấp đại lý"
   Width="120"
                                     Name="dp_ngaysinh"
   materialDesign:HintAssist.Hint="Ngày sinh"
-  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="29.8,52,0,0" RenderTransformOrigin="0.704,0.701" Grid.Column="1"/>
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="29.8,52,0,0"  Grid.Column="1"/>
+                                <ComboBox
+                                    ItemsSource="{Binding Path=DINHMUCS}"
+                                   DisplayMemberPath="CapDaiLy"
+                                    SelectedItem="{Binding  MaDinhMuc,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                                    x:Name="cb_madinhmuc"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    Width="128"
+                                    materialDesign:HintAssist.Hint="Mã định mức"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="31,97,0,0" />
 
                             </Grid>
 
@@ -198,13 +200,13 @@ materialDesign:HintAssist.Hint="Cấp đại lý"
                     Width="120"
   materialDesign:HintAssist.Hint="Công nợ"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="28,274,0,0" />-->
-                            <Grid Grid.Row="1">
+                            <Grid Grid.Column="1">
                                 <TextBox
     VerticalAlignment="Top"
                                     Width="200"
                                     Name="txt_noidung"
     materialDesign:HintAssist.Hint="Nội dung"
-  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="29,0,403.4,0"/>
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="313,184,48.6,0"/>
                             </Grid>
                         </Grid>
 
@@ -227,7 +229,7 @@ materialDesign:HintAssist.Hint="Cấp đại lý"
                             Background="#609194"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Height="40"
-    Width="100"
+    Width="100" Click="button_add_Click"
 >
                     Thêm
                 </Button>

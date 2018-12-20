@@ -15,19 +15,9 @@
         ResizeMode="NoResize"
         WindowStyle="None" 
         mc:Ignorable="d"
-         
-        xmlns:vml = "clr-namespace:CNPMProject.VML"
-        vml:ViewModelLocator.AutoHookedUpViewModel = "True"
-        Title="Quản lý đại lý" Height="600" Width="800" Background="#AFBFAE" Loaded="DaiLy_Loaded">
-
-    <Window.DataContext>
-        <viewModel:DailyViewModel/>
-    </Window.DataContext>
-    <Window.Resources>
-        <vml:SelectedItemToDAILYConverter x:Key="converter"/>
-    </Window.Resources>
+        Title="Quản lý đại lý" Height="600" Width="800" Background="#AFBFAE">
     <Grid>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -42,7 +32,7 @@
                                 <Setter Property="Width" Value="40"></Setter>
                             </Style>
                         </StackPanel.Resources>
-                         <Button Name="button_closewindow" Command="{Binding CloseWindowCommand}" 
+                        <Button Name="button_closewindow" Command="{Binding CloseWindowCommand}" 
                              ToolBar.OverflowMode="AsNeeded" Background="OrangeRed" Click="button_closewindow_Click">
                             <materialDesign:PackIcon Kind="WindowClose" />
                         </Button>
@@ -141,16 +131,174 @@
                     Định mức
                 </Button>
             </Grid>-->
+
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition Height="450"/>
+                    <RowDefinition />
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="250"/>
+
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
+                    <GroupBox
+    Header="Đại lý"
+                        
+    Style="{DynamicResource MaterialDesignGroupBox}"
+                    materialDesign:ColorZoneAssist.Mode="Dark"
+                    Height="230" Width="780"
+                    VerticalAlignment="Center"
+    UseLayoutRounding="True"
+    SnapsToDevicePixels="True">
+                        <materialDesign:Card Height="180">
+                            <Grid>
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBox
+                                Name="txt_madaily"
+                    VerticalAlignment="Top"
+                                    
+                    HorizontalAlignment="Left"
+                    Width="100"
+                                    
+  materialDesign:HintAssist.Hint="Mã đại lý"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1"/>
+                                        <TextBox
+                                Name="txt_mahopdong"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="127"
+  materialDesign:HintAssist.Hint="Mã hợp đồng"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="1" Grid.Column="1"/>
+                                        <ComboBox
+                                    
+                                   DisplayMemberPath="CapDaiLy"
+                                    x:Name="cb_madinhmuc"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="left"
+                                    Width="128"
+                                    materialDesign:HintAssist.Hint="Mã định mức"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.Row="2" Grid.Column="1" />
+
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBox
+                                    Name="txt_hotenchudaily"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="170"
+  materialDesign:HintAssist.Hint="Họ tên chủ đại lý"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="0"/>
+                                        <TextBox
+                                    Name="txt_tendaily"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="150"
+  materialDesign:HintAssist.Hint="Tên đại lý"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="1"/>
+
+                                        <TextBox
+                               Name="txt_cap"
+                                    
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="120"
+materialDesign:HintAssist.Hint="Cấp đại lý"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="2">
+                                        </TextBox>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <DatePicker
+                                            VerticalAlignment="Top"
+                                            IsEnabled="False"
+                                            HorizontalAlignment="Left"
+                                            Width="120"
+                                            Name="dp_ngaylap"
+                                            materialDesign:HintAssist.Hint="Ngày lập"
+                                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.Row="0"/>
+                                        <DatePicker
+                                VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+  Width="120"
+                                    Name="dp_ngaysinh"
+  materialDesign:HintAssist.Hint="Ngày sinh"
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.Row="1"/>
+                                        <TextBox
+                                Name="txt_cmnd"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="120"
+  materialDesign:HintAssist.Hint="CMND"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="2"/>
+
+                                    </Grid>
+                                    <Grid Grid.Column="3">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBox VerticalAlignment="Top"
+HorizontalAlignment="Left"
+                                    Width="150"
+                                    Name="txt_noidung"
+    materialDesign:HintAssist.Hint="Nội dung"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="1"/>
+                                    </Grid>
+                                </Grid>
+
+
+
+                            </Grid>
+
+
+
+
+                            <!--<TextBox
+                                Name="txt_congno"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="120"
+  materialDesign:HintAssist.Hint="Công nợ"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="28,274,0,0" />-->
+
+                        </materialDesign:Card>
+
+
+                    </GroupBox>
+
+                </Grid>
+                <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="400"/>
                         <ColumnDefinition/>
+
                     </Grid.ColumnDefinitions>
+
                     <materialDesign:ColorZone Grid.Column="0"
                                               VerticalAlignment="Bottom"
                                               Height="70"
@@ -168,6 +316,7 @@
                                     Panel.ZIndex="1"
                                     Margin="16 0 0 0"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    Grid.Column="1"
                                     >
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -179,14 +328,15 @@
                                                 Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <Button
-                                            Style="{DynamicResource MaterialDesignToolButton}">
+                                            Name="button_search"
+                                            Style="{DynamicResource MaterialDesignToolButton}" Height="Auto" Click="button_search_Click">
                                             <materialDesign:PackIcon
+                                                
                                                 Kind="Magnify"
-                                                Opacity=".56" />
+                                                />
                                         </Button>
-                                        
+
                                         <TextBox 
-                                            Text="{Binding SearchDAILYSCommand}"
                                             Grid.Column="1"
                                             Name="txtsearchDaiLy"
                                             Margin="8 0 0 0"
@@ -196,6 +346,14 @@
                                             BorderThickness="0"
                                             MinWidth="200"
                                             VerticalAlignment="Center" />
+                                        <Button
+                                            Name="button_refresh"
+                                            Style="{DynamicResource MaterialDesignToolButton}" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Click="button_refresh_Click">
+                                            <materialDesign:PackIcon
+                                                
+                                                Kind="Reload"
+                                                />
+                                        </Button>
                                     </Grid>
                                 </materialDesign:ColorZone>
                             </StackPanel>
@@ -206,7 +364,7 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>-->
-                        <!--<Button
+                    <!--<Button
                             Grid.Row="1"
   Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                             Background="Gray"
@@ -221,7 +379,7 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>-->
-                        <!--<TextBox
+                    <!--<TextBox
                             Grid.Row="1"
                             FontSize="14"
                         Width="130"
@@ -238,10 +396,7 @@
                             <ColumnDefinition />
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
+
                         <Button
                             Name="button_add"
                             Grid.Column="0" Grid.Row="1"
@@ -249,8 +404,10 @@
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             Height="40"
                             Width="100"
-                            Command="{Binding AddCommand}"
-                            VerticalAlignment="Top">
+                            Foreground="White"
+                            FontSize="18"
+                            BorderBrush="Gray"
+                            VerticalAlignment="Center" Click="button_add_Click">
                             Thêm
                         </Button>
                         <Button
@@ -260,7 +417,10 @@
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             Height="40"
                             Width="100"
-                            VerticalAlignment="Top" Click="button_update_Click">
+                            Foreground="White"
+                            FontSize="18"
+                            BorderBrush="Gray"
+                            VerticalAlignment="Center" Click="button_update_Click">
                             Sửa
                         </Button>
                         <Button
@@ -269,74 +429,74 @@
                             Background="#609194"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             Height="40" Width="100"
-                            VerticalAlignment="Top">
+                            Foreground="White"
+                            FontSize="18"
+                            BorderBrush="Gray"
+                            VerticalAlignment="Center" Click="btn_delete_Click">
                             Xóa
                         </Button>
                     </Grid>
-                    
+
                 </Grid>
-                <materialDesign:Card Grid.Row="1" Height="350" Width="770">
+                <materialDesign:Card Grid.Row="2" Height="240" Width="770">
                     <DataGrid
                         
-                        ItemsSource="{Binding Path=DAILYS, Mode=TwoWay}"
-                        CanUserSortColumns="True"
-                        CanUserAddRows="False" 
-                        
-                        SelectedItem="{Binding SelectedDAILYS,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                        Name="DaiLyViewControl" Loaded="DaiLy_Loaded"
+                        CanUserAddRows="False"
+                        CanUserDeleteRows="False"
+                        Name="ds_daily"
                         AutoGenerateColumns="False"
-                        Width="auto">
+                        Width="auto" SelectionChanged="ds_daily_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-                                Binding="{Binding Path=MaDaiLy,Mode=OneWay}"
+                                Binding="{Binding MaDaiLy}"
                                 Header="Mã đại lý"
                                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                            
+
                             <materialDesign:MaterialDataGridTextColumn
-                                Binding="{Binding Path=MaHopDong,Mode=OneWay}"
+                                Binding="{Binding MaHopDong}"
                                 Header="Mã hợp đồng"
                                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                        <materialDesign:MaterialDataGridTextColumn
-                            Binding="{Binding Path=NgayLap,Mode=OneWay}" 
+                            <materialDesign:MaterialDataGridTextColumn
+                            Binding="{Binding NgayLap}" 
                             Header="Ngày lập"
                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                        <materialDesign:MaterialDataGridTextColumn
-                            Binding="{Binding Path=CMND,Mode=OneWay}"
+                            <materialDesign:MaterialDataGridTextColumn
+                            Binding="{Binding CMND}"
                             Header="CMND"
                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                        </materialDesign:MaterialDataGridTextColumn>
-                        <materialDesign:MaterialDataGridTextColumn
-                            Binding="{Binding Path=HoTenChuDaiLy,Mode=OneWay}"
+                            </materialDesign:MaterialDataGridTextColumn>
+                            <materialDesign:MaterialDataGridTextColumn
+                            Binding="{Binding HoTenChuDaiLy}"
                             Header="Họ tên chủ đại lý"
                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                        </materialDesign:MaterialDataGridTextColumn>
-                        <materialDesign:MaterialDataGridTextColumn
-                            Binding="{Binding Path=NgaySinh,Mode=OneWay}"
+                            </materialDesign:MaterialDataGridTextColumn>
+                            <materialDesign:MaterialDataGridTextColumn
+                            Binding="{Binding NgaySinh}"
                             Header="Ngày sinh"
                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                        </materialDesign:MaterialDataGridTextColumn>
-                        <materialDesign:MaterialDataGridTextColumn
-                            Binding="{Binding Path=CapDaiLy,Mode=OneWay}"
+                            </materialDesign:MaterialDataGridTextColumn>
+                            <materialDesign:MaterialDataGridTextColumn
+                            Binding="{Binding CapDaiLy}"
                             Header="Cấp đại lý"
                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                        </materialDesign:MaterialDataGridTextColumn>
-                        <materialDesign:MaterialDataGridTextColumn
-                            Binding="{Binding Path=TenDaiLy,Mode=OneWay}"
+                            </materialDesign:MaterialDataGridTextColumn>
+                            <materialDesign:MaterialDataGridTextColumn
+                            Binding="{Binding TenDaiLy}"
                             Header="Tên đại lý"
                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                        </materialDesign:MaterialDataGridTextColumn>
-                        <materialDesign:MaterialDataGridTextColumn
-                            Binding="{Binding Path=HoTenChuDaiLy,Mode=OneWay}"
+                            </materialDesign:MaterialDataGridTextColumn>
+                            <materialDesign:MaterialDataGridTextColumn
+                            Binding="{Binding HoTenChuDaiLy}"
                             Header="Họ tên chủ đại lý"
                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                        </materialDesign:MaterialDataGridTextColumn>
-                        <materialDesign:MaterialDataGridTextColumn
-                            Binding="{Binding Path=NoiDung,Mode=OneWay}"
+                            </materialDesign:MaterialDataGridTextColumn>
+                            <materialDesign:MaterialDataGridTextColumn
+                            Binding="{Binding NoiDung}"
                             Header="Nội dung"
                             EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                        </materialDesign:MaterialDataGridTextColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
+                            </materialDesign:MaterialDataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </materialDesign:Card>
             </Grid>
         </Grid>

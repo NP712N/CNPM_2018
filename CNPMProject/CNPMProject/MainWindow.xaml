@@ -17,7 +17,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen" 
         Name="mainWindow"
-        Title="Trang Chủ" Height="600" Width="800">
+        Title="Trang Chủ" Height="600" Width="800" Background="#AFBFAE">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -69,6 +69,10 @@
                 Width="auto"
                 Height="70"
                 Background="#609194"
+                Foreground="White"
+                FontSize="18"
+                BorderBrush="Black"
+                BorderThickness="1"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
      Click="button_DaiLy_Click">
                 Đại lý
@@ -79,7 +83,10 @@
                 Width="auto"
                 Height="70"
                 Background="#609194"
-
+Foreground="White"
+                FontSize="18"
+                BorderBrush="Black"
+                BorderThickness="1"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
      Click="button_hanghoa_Click">
                 Hàng hóa
@@ -90,6 +97,10 @@
                 Width="auto"
                 Height="70"
                 Background="#609194"
+                Foreground="White"
+                FontSize="18"
+                BorderBrush="Black"
+                BorderThickness="1"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
      Click="button_hoadon_Click" >
                 Hóa đơn
@@ -100,6 +111,10 @@
                 Width="auto"
                 Height="70"
                 Background="#609194"
+                Foreground="White"
+                FontSize="18"
+                BorderBrush="Black"
+                BorderThickness="1"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
      Click="button_uudai_Click" >
                 Ưu đãi
@@ -110,6 +125,10 @@
                 Width="auto"
                 Height="70"
                 Background="#609194"
+                Foreground="White"
+                FontSize="18"
+                BorderBrush="Black"
+                BorderThickness="1"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
      Click="button_phieuthu_Click" >
                 Phiếu thu
@@ -120,6 +139,10 @@
                 Width="auto"
                 Height="70"
                 Background="#609194"
+                Foreground="White"
+                FontSize="18"
+                BorderBrush="Black"
+                BorderThickness="1"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
      Click="button_donhang_Click" >
                 Đơn hàng
@@ -136,26 +159,26 @@
                 Định mức
             </Button>-->
         </Grid>
-        <TextBlock Grid.Row="2"
+        <TextBlock Foreground="OrangeRed" Grid.Row="2"
                   FontWeight="Bold"
     Style="{StaticResource MaterialDesignDisplay2TextBlock}"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom">
   Quản lý các đại lý
         </TextBlock>
-        <materialDesign:Card Grid.Row="3" Height="328" Width="270" VerticalAlignment="Center">
+        <materialDesign:Card Grid.Row="3" Height="330" Width="500" VerticalAlignment="Center">
             <Grid Grid.Row="2" Margin="0,0,0.4,0">
-                <Image Source="hinh\man.png" Height="200" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="38,23,32,77"></Image>
-                <TextBlock
+                <Image Source="hinh\cach-de-1-nguoi-ban-hang-online-tren-mang-cuc-ky-hot-bytuong-com.png" Height="289" Width="343" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                <!--<TextBlock
                     FontWeight="Bold"
     Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                     HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="65,0,56,39">
   Hiếu Nguyễn
-                </TextBlock>
+                </TextBlock>-->
                 <TextBlock
                     FontWeight="Bold"
                     Foreground="Red"
     Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="98,0,96,10">
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom">
   Admin
                 </TextBlock>
             </Grid>

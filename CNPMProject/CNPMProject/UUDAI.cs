@@ -13,7 +13,7 @@ namespace CNPMProject
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class UUDAI:INotifyPropertyChanged
+    public partial class UUDAI
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UUDAI()
@@ -30,7 +30,6 @@ namespace CNPMProject
                 if (maUuDai!=value)
                 {
                     maUuDai = value;
-                    RaisePropertyChanged("MaUuDai");
                 }
             } }
 
@@ -44,7 +43,6 @@ namespace CNPMProject
                 if (tenUuDai != value)
                 { 
                     tenUuDai = value;
-                    RaisePropertyChanged("TenUuDai");
                 }
             }
         }
@@ -58,7 +56,6 @@ namespace CNPMProject
                 if (ngayBatDau!=value)
                 {
                     ngayBatDau = value;
-                    RaisePropertyChanged("NgayBatDau");
                 } } }
 
 
@@ -72,7 +69,6 @@ namespace CNPMProject
                 if (ngayKetThuc != value)
                 {
                     ngayKetThuc = value;
-                    RaisePropertyChanged("NgayKetThuc");
                 }
             }
         }
@@ -86,7 +82,6 @@ namespace CNPMProject
                 if (capDaiLy!=value)
                 {
                     capDaiLy = value;
-                    RaisePropertyChanged("CapDaiLy");
                 }
             } }
 
@@ -98,18 +93,8 @@ namespace CNPMProject
                 if (phanTram!=value)
                 {
                     phanTram = value;
-                    RaisePropertyChanged("PhanTram");
                 }
             } }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAILY> DAILies { get; set; }

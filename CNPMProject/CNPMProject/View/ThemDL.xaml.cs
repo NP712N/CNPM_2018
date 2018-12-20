@@ -22,7 +22,6 @@ namespace CNPMProject
         public ThemDL()
         {
             InitializeComponent();
-            this.DataContext = new ViewModel.ThemDLViewModel();
         }
 
 
@@ -31,5 +30,9 @@ namespace CNPMProject
             Close();
         }
 
+        private void button_add_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace CNPMProject
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class DAILY:INotifyPropertyChanged
+    public partial class DAILY
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DAILY()
@@ -24,7 +24,19 @@ namespace CNPMProject
             this.NODAILies = new HashSet<NODAILY>();
             this.UUDAIs = new HashSet<UUDAI>();
         }
-
+        //public DAILY(string maDaiLy, string maDinhMuc, string maHopDong, Nullable<DateTime> ngayLap,string cMND, string hoTenChuDaiLy, Nullable<DateTime> ngaySinh, string capDaiLy, string tenDaiLy, string noiDung)
+        //{
+        //    MaDaiLy = maDaiLy;
+        //    MaDinhMuc = maDinhMuc;
+        //    MaHopDong = maHopDong;
+        //    NgayLap = ngayLap;
+        //    CMND = cMND;
+        //    HoTenChuDaiLy = hoTenChuDaiLy;
+        //    NgaySinh = ngaySinh;
+        //    CapDaiLy = capDaiLy;
+        //    TenDaiLy = tenDaiLy;
+        //    NoiDung = noiDung;
+        //}
         private string maDaiLy;
         public string MaDaiLy
         {
@@ -34,7 +46,6 @@ namespace CNPMProject
                 if (maDaiLy!=value)
                 {
                     maDaiLy = value;
-                    RaisePropertyChanged("MaDaiLy");
                 }
             } }
 
@@ -47,7 +58,6 @@ namespace CNPMProject
                 if (maDinhMuc!=value)
                 {
                     maDinhMuc = value;
-                    RaisePropertyChanged("MaDinhMuc");
                 }
             } }
 
@@ -60,7 +70,6 @@ namespace CNPMProject
                 if (maHopDong != value)
                 {
                     maHopDong = value;
-                    RaisePropertyChanged("MaHopDong");
                 }
             } }
 
@@ -73,7 +82,6 @@ namespace CNPMProject
                 if (ngayLap!=value)
                 {
                     ngayLap = value;
-                    RaisePropertyChanged("NgayLap");
                 }
             } }
 
@@ -86,7 +94,6 @@ namespace CNPMProject
                 if (cMND != value)
                 {
                     cMND = value;
-                    RaisePropertyChanged("CMND");
                 }
             } }
 
@@ -99,7 +106,6 @@ namespace CNPMProject
                 if (hoTenChuDaiLy!=value)
                 {
                     hoTenChuDaiLy = value;
-                    RaisePropertyChanged("HoTenChuDaiLy");
                 }
             } }
 
@@ -112,7 +118,6 @@ namespace CNPMProject
                 if (ngaySinh != value)
                 {
                     ngaySinh = value;
-                    RaisePropertyChanged("NgaySinh");
                 }
             }
         }
@@ -126,7 +131,6 @@ namespace CNPMProject
                 if (capDaiLy!=value)
                 {
                     capDaiLy = value;
-                    RaisePropertyChanged("CapDaiLy");
                 }
             } }
 
@@ -139,7 +143,6 @@ namespace CNPMProject
                 if (tenDaiLy!=value)
                 {
                     tenDaiLy = value;
-                    RaisePropertyChanged("TenDaiLy");
                 }
             } }
 
@@ -152,19 +155,9 @@ namespace CNPMProject
                 if (noiDung!=value)
                 {
                     noiDung = value;
-                    RaisePropertyChanged("NoiDung");
                 }
             } }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAOCAOCONGNO> BAOCAOCONGNOes { get; set; }

@@ -13,7 +13,7 @@ namespace CNPMProject
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class HANGHOA:INotifyPropertyChanged
+    public partial class HANGHOA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HANGHOA()
@@ -27,7 +27,6 @@ namespace CNPMProject
                 if (maHangHoa!= value)
                 {
                     maHangHoa = value;
-                    RaisePropertyChanged("MaHangHoa");
                 }
             } }
 
@@ -37,7 +36,6 @@ namespace CNPMProject
                 if (tenMatHang != value)
                 {
                     tenMatHang = value;
-                    RaisePropertyChanged("TenMatHang");
                 }
             } }
 
@@ -46,7 +44,6 @@ namespace CNPMProject
                 if (donGia != value)
                 {
                     donGia = value;
-                    RaisePropertyChanged("DonGia");
                 }
             } }
 
@@ -55,20 +52,8 @@ namespace CNPMProject
                 if (soLuongCon!=value)
                 {
                     soLuongCon = value;
-                    RaisePropertyChanged("SoLuongCon");
                 }
             } }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHANGHOAXUAT> CHITIETHANGHOAXUATs { get; set; }
     }

@@ -13,7 +13,7 @@ namespace CNPMProject
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class HOADON:INotifyPropertyChanged
+    public partial class HOADON
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HOADON()
@@ -30,7 +30,6 @@ namespace CNPMProject
                 if (maHoaDon!=value)
                 {
                     maHoaDon = value;
-                    RaisePropertyChanged("MaHoaDon");
                 } } }
 
 
@@ -43,7 +42,6 @@ namespace CNPMProject
                 if (maDonHang!=value)
                 {
                     maDonHang = value;
-                    RaisePropertyChanged("MaDonHang");
                 }
             } }
 
@@ -56,7 +54,6 @@ namespace CNPMProject
                 if (maPhieuXuat!=value)
                 {
                     maPhieuXuat = value;
-                    RaisePropertyChanged("MaPhieuXuat");
                 }
             } }
 
@@ -69,7 +66,6 @@ namespace CNPMProject
                 if (ngayLap!= value)
                 {
                     ngayLap = value;
-                    RaisePropertyChanged("NgayLap");
                 }
             } }
 
@@ -82,18 +78,7 @@ namespace CNPMProject
                 if (thanhTien!=value)
                 {
                     thanhTien = value;
-                    RaisePropertyChanged("ThanhTien");
                 } } }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
 
         public virtual DONHANG DONHANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

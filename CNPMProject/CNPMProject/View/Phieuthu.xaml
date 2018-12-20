@@ -16,13 +16,9 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         WindowStyle="None" 
         
         xmlns:vml = "clr-namespace:CNPMProject.VML"
-        xmlns:viewModel="clr-namespace:CNPMProject.ViewModel"
-        vml:ViewModelLocator.AutoHookedUpViewModel = "True"
         
         Title="Quản lý phiếu thu" Height="600" Width="800" Background="#AFBFAE">
-    <Window.DataContext>
-        <viewModel:PhieuThuViewModel/>
-    </Window.DataContext>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -58,91 +54,80 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             </materialDesign:ColorZone>
         </Grid>
         <Grid Grid.Row="1">
-            <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>-->
-            <!--<Grid Grid.Column="0" >
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Button
-                Grid.Row="0"
-                    Height="auto"
-                Background="#92DCE0"
-                BorderBrush="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                    Đại lý
-                </Button>
-                <Button
-                    Grid.Row="1"
-                    Height="auto"
-                Background="#92DCE0"
-                BorderBrush="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                    Hàng hóa
-                </Button>
-                <Button
-                    Height="auto"
-                    Grid.Row="2"
-                Background="#92DCE0"
-                BorderBrush="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                    Hóa đơn
-                </Button>
-                <Button
-                    Height="auto"
-                    Grid.Row="3"
-                Background="#92DCE0"
-                BorderBrush="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                    Ưu đãi
-                </Button>
-                <Button
-                    Height="auto"
-                    Grid.Row="4"
-                Background="#92DCE0"
-                BorderBrush="#609194"
-                                        
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" >
-                    Phiếu thu
-                </Button>
-                <Button
-                    Height="auto"
-                    Grid.Row="5"
-                Background="#92DCE0"
-                BorderBrush="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                    Đơn hàng
-                </Button>
-                <Button
-                    Height="auto"
-                    Grid.Row="6"
-                Background="#92DCE0"
-                BorderBrush="#609194"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                    Định mức
-                </Button>
-            </Grid>-->
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition Height="450"/>
+                    <RowDefinition />
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="250"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
+                    <GroupBox
+    Header="Phiếu thu"
+    Style="{DynamicResource MaterialDesignGroupBox}"
+                    materialDesign:ColorZoneAssist.Mode="Dark"
+                        Height="230" Width="780"
+                    VerticalAlignment="Top"
+    UseLayoutRounding="True"
+    SnapsToDevicePixels="True" Margin="10,10,10,0">
+                        <materialDesign:Card Height="180">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox
+                                Name="txt_maphieuthu"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Width="120"
+  materialDesign:HintAssist.Hint="Mã phiếu thu"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="0"/>
+                                <ComboBox
+                                Name="cb_mahoadon"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Width="120"
+  materialDesign:HintAssist.Hint="Mã hóa đơn"
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.Column="0" Grid.Row="1"/>
+                                <TextBox
+                                Name="txt_tienphaitra"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="120"
+  materialDesign:HintAssist.Hint="Tiền phải trả"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="1"/>
+
+                                <DatePicker
+                                    Name="dp_ngaylap"
+                                        IsEnabled="False"
+                                VerticalAlignment="Top" 
+                    HorizontalAlignment="Left"
+  Width="120"
+  materialDesign:HintAssist.Hint="Ngày lập"
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.Column="1"/>
+                                <Grid Grid.Row="1">
+                                    <TextBox
+    VerticalAlignment="Top" HorizontalAlignment="Center"
+                                    Width="145"
+
+    materialDesign:HintAssist.Hint="Tiền nợ"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="96,0,321,0"/>
+                                </Grid>
+                            </Grid>
+
+                        </materialDesign:Card>
+
+
+                    </GroupBox>
+
+                </Grid>
+                <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="400"/>
                         <ColumnDefinition/>
@@ -174,12 +159,14 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
               Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <Button
-            Style="{DynamicResource MaterialDesignToolButton}">
+                                            Name="button_search"
+            Style="{DynamicResource MaterialDesignToolButton}" Click="button_search_Click">
                                             <materialDesign:PackIcon
               Kind="Magnify"
-              Opacity=".56" />
+              />
                                         </Button>
                                         <TextBox
+                                            Name="txt_search"
             Grid.Column="1"
             Margin="8 0 0 0"
                                             FontSize="16"
@@ -188,121 +175,93 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             BorderThickness="0"
             MinWidth="200"
             VerticalAlignment="Center" />
+                                        <Button
+                                            Name="button_refresh"
+                                            Style="{DynamicResource MaterialDesignToolButton}" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Click="button_refresh_Click">
+                                            <materialDesign:PackIcon
+                                                
+                                                Kind="Reload"
+                                                />
+                                        </Button>
                                     </Grid>
                                 </materialDesign:ColorZone>
                             </StackPanel>
                         </DockPanel>
                     </materialDesign:ColorZone>
-                    <!--<Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>-->
-                    <!--<Button
-                            Grid.Row="1"
-  Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                            Background="Gray"
-                            BorderBrush="DarkGray"
-  HorizontalAlignment="Center"
-  ToolTip="MaterialDesignFloatingActionMiniButton" Margin="10,7.2,50,9.6">
-                            <materialDesign:PackIcon Kind="UserSearch" />
-                        </Button>-->
-                    <!--</Grid>-->
-                    <!--<Grid Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>-->
-                    <!--<TextBox
-                            Grid.Row="1"
-                            FontSize="14"
-                        Width="130"
-                            Height="40"
-                             HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-  x:Name="CommentTextBox"
-  materialDesign:HintAssist.Hint="Search"/>-->
-
-                    <!--</Grid>-->
                     <Grid Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
                         <Button
                             Name="button_add"
                             Grid.Column="0" Grid.Row="1"
                             Background="#609194"
+                            Foreground="White"
+                            FontSize="18"
+                            BorderBrush="Gray"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Height="40"
     Width="100"
-                            VerticalAlignment="Top" Click="button_add_Click">
+                            VerticalAlignment="Center" Click="button_add_Click">
                             Thêm
                         </Button>
                         <Button
                             Name="button_update"
                             Grid.Column="1" Grid.Row="1"
                             Background="#609194"
+                            Foreground="White"
+                            FontSize="18"
+                            BorderBrush="Gray"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Height="40"
     Width="100"
-                            VerticalAlignment="Top" Click="button_update_Click">
+                            VerticalAlignment="Center" Click="button_update_Click">
                             Sửa
                         </Button>
                         <Button
                             Name="button_delete"
                             Grid.Column="2" Grid.Row="1"
                             Background="#609194"
+                            Foreground="White"
+                            FontSize="18"
+                            BorderBrush="Gray"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Height="40"
     Width="100"
-                            VerticalAlignment="Top">
+                            VerticalAlignment="Center" Click="button_delete_Click">
                             Xóa
                         </Button>
                     </Grid>
 
                 </Grid>
-                <materialDesign:Card Grid.Row="1" Height="350" Width="770">
+                <materialDesign:Card Grid.Row="2" Height="240" Width="770">
                     <DataGrid
-  ItemsSource="{Binding Path=PHIEUTHUS}"
+                        Name="ds_phieuthu"
+                        CanUserDeleteRows="False"
   CanUserSortColumns="True"
   CanUserAddRows="False" 
   AutoGenerateColumns="False"
-                Width="auto">
+                Width="auto" SelectionChanged="ds_phieuthu_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-      Binding="{Binding Path=MaPhieuThu}"
+      Binding="{Binding MaPhieuThu}"
       Header="Mã phiếu thu"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=MaHoaDon}"
+      Binding="{Binding MaHoaDon}"
       Header="Mã hóa đơn"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
 
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=NgayLap}"
+      Binding="{Binding NgayLapPhieu}"
       Header="Ngày lập"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
                             <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=TienPhaiTra}"
-      Header="Tiền phải trả"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                            </materialDesign:MaterialDataGridTextColumn>
-
-                            <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=TienThu}"
+      Binding="{Binding SoTienDaThu}"
       Header="Tiền thu"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                            </materialDesign:MaterialDataGridTextColumn>
-                            <materialDesign:MaterialDataGridTextColumn
-      Binding="{Binding Path=TienNo}"
-      Header="Tiền nợ"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                             </materialDesign:MaterialDataGridTextColumn>
                         </DataGrid.Columns>
@@ -310,24 +269,6 @@ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                 </materialDesign:Card>
             </Grid>
         </Grid>
-        <!--<materialDesign:Card Grid.Row="2" Height="328" Width="270" VerticalAlignment="Center">
-            <Grid Grid.Row="2" Margin="0,0,0.4,0">
-                <Image Source="hinh\man.png" Height="200" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="38,23,32,77"></Image>
-                <TextBlock
-                    FontWeight="Bold"
-    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="65,0,56,39">
-  Hiếu Nguyễn
-                </TextBlock>
-                <TextBlock
-                    FontWeight="Bold"
-                    Foreground="Red"
-    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="98,0,96,10">
-  Admin
-                </TextBlock>
-            </Grid>
-        </materialDesign:Card>-->
     </Grid>
 
 </Window>

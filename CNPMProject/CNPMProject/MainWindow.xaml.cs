@@ -61,7 +61,10 @@ namespace CNPMProject
         }
         private void button_closewindow_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if (MessageBox.Show("Bạn có muốn thoát?", "Thoát", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+            {
+                Close();
+            }
         }
     }
 }

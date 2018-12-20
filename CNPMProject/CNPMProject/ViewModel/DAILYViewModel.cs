@@ -10,53 +10,53 @@ using System.Windows.Input;
 
 namespace CNPMProject.ViewModel
 {
-    public class DailyViewModel:INotifyPropertyChanged
+    public class DailyViewModel : INotifyPropertyChanged
     {
-        MyICommand AddCommand { get; set; }
+        public MyICommand AddCommand { get; set; }
+        public MyICommand EditCommand { get; set; }
         public MyICommand DeleteCommand { get; set; }
         public MyICommand SearchDAILYSCommand { get; set; }
 
         public bool CanAddT { get; set; }
         public bool CanSearchT { get; set; }
         public List<DAILY> DAILYS { get; set; }
+        public List<DINHMUC> DINHMUCS { get; set; }
         public DailyViewModel()
         {
             LoadDaiLy();
             DeleteCommand = new MyICommand(OnDelete, CanDelete);
-            SearchDAILYSCommand = new MyICommand(OnSearch,CanSearch);
+            SearchDAILYSCommand = new MyICommand(OnSearch, CanSearch);
             AddCommand = new MyICommand(OnAdd, CanAdd);
+            
         }
         private void OnAdd()
         {
-            ThemDL themDL = new ThemDL();
-            using (var db = new QUANLYCACDAILYEntities())
+            try
             {
-                DAILY temp = new DAILY();
-                temp.MaDaiLy = themDL.txt_madaily.ToString();
-                temp.MaHopDong = themDL.txt_mahopdong.ToString();
-                temp.CMND = themDL.txt_cmnd.ToString();
-                temp.HoTenChuDaiLy = themDL.txt_hotenchudaily.ToString();
-                temp.NoiDung = themDL.txt_noidung.ToString();
-                temp.TenDaiLy = themDL.txt_tendaily.ToString();
-                temp.NgaySinh = DateTime.Parse(themDL.dp_ngaysinh.ToString());
-                temp.NgayLap = DateTime.Parse(themDL.dp_ngaylap.ToString());
-                temp.CapDaiLy = themDL.cb_cap.SelectedItem.ToString();
+                Daily dl = new Daily();
 
-                try
+                using (var db = new QUANLYCACDAILYEntities())
                 {
+                    DAILY temp = new DAILY();
+                    temp.MaDaiLy = dl.txt_madaily.ToString();
+                    temp.MaDinhMuc = dl.cb_madinhmuc.SelectedItem.ToString();
+                    temp.MaHopDong = dl.txt_mahopdong.ToString();
+                    temp.NgayLap = DateTime.Parse(dl.dp_ngaylap.ToString());
+                    temp.CMND = dl.txt_cmnd.ToString();
+                    temp.HoTenChuDaiLy = dl.txt_hotenchudaily.ToString();
+                    temp.NgaySinh = DateTime.Parse(dl.dp_ngaysinh.ToString());
+                    temp.CapDaiLy = dl.txt_cap.ToString();
+                    temp.TenDaiLy = dl.txt_tendaily.ToString();
+                    temp.NoiDung = dl.txt_noidung.ToString();
                     db.DAILies.Add(temp);
                 }
-                catch (Exception)
-                {
-
-                }
             }
-            themDL.ShowDialog();
+            catch { }
         }
 
         private bool CanAdd()
         {
-            return CanAddT != true ;
+            return CanAddT != true;
         }
 
         private bool CanSearch()
@@ -66,20 +66,23 @@ namespace CNPMProject.ViewModel
 
         private void OnSearch()
         {
-            
+
         }
-        
+
 
         private DAILY _SelectedDAILYS;
-        public DAILY SelectedDAILYS { get { return _SelectedDAILYS; }
-            set {
-                if (_SelectedDAILYS!= value)
+        public DAILY SelectedDAILYS
+        {
+            get { return _SelectedDAILYS; }
+            set
+            {
+                if (_SelectedDAILYS != value)
                 {
                     _SelectedDAILYS = value;
                     DeleteCommand.RaiseCanExecuteChanged();
                     RaisePropertyChanged("SelectedDAILYS");
                 }
-                
+
             }
         }
 
@@ -95,18 +98,23 @@ namespace CNPMProject.ViewModel
                 db.DAILies.Remove(
                     db.DAILies.Find(
                  (from m in db.DAILies
-                 where m.MaDaiLy == SelectedDAILYS.MaDaiLy
-                 select m)
+                  where m.MaDaiLy == SelectedDAILYS.MaDaiLy
+                  select m)
                  ));
             }
         }
 
-        
+
         public void LoadDaiLy()
         {
             using (var db = new QUANLYCACDAILYEntities())
             {
                 DAILYS = db.DAILies.ToList();
+            }
+            
+            using (var db = new QUANLYCACDAILYEntities())
+            {
+                DINHMUCS = db.DINHMUCs.ToList();
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
